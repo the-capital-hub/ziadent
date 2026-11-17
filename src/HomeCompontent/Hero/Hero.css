@@ -1,0 +1,690 @@
+
+/* =========================================
+   ZIADENT PREMIUM HERO SECTION
+========================================= */
+
+.zd-hero {
+  position: relative;
+  width: 100%;
+  min-height: 690px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background: linear-gradient(
+    115deg,
+    #FFFFFF 0%,
+    #F2F7FA 43%,
+    #DCEAF2 100%
+  );
+}
+
+/* BACKGROUND SHAPES */
+
+.zd-hero-bg-circle {
+  position: absolute;
+  z-index: -1;
+
+  width: 650px;
+  height: 650px;
+
+  top: -270px;
+  left: 28%;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(120, 199, 235, 0.25),
+    transparent 70%
+  );
+}
+
+.zd-hero-blue-shape {
+  position: absolute;
+  z-index: -1;
+
+  width: 650px;
+  height: 100%;
+
+  top: 0;
+  right: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(11, 95, 138, 0.05),
+    rgba(11, 95, 138, 0.12)
+  );
+
+  clip-path: ellipse(80% 90% at 100% 50%);
+}
+
+/* MAIN CONTAINER */
+
+.zd-hero-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(1600px, calc(100% - 80px));
+  min-height: 620px;
+
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+
+  align-items: center;
+}
+
+/* LEFT CONTENT */
+
+.zd-hero-content {
+  position: relative;
+  z-index: 4;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  animation: zdHeroContent 0.9s ease both;
+}
+
+@keyframes zdHeroContent {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* BADGE */
+
+.zd-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 10px 20px;
+
+  margin-bottom: 23px;
+
+  color: #163247;
+  background: rgba(255, 255, 255, 0.85);
+
+  border: 1px solid #FFFFFF;
+  border-radius: 50px;
+
+  box-shadow: 0 5px 20px rgba(22, 50, 71, 0.04);
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.zd-hero-badge svg {
+  color: #F47721;
+}
+
+/* HEADING */
+
+.zd-hero-content h1 {
+  max-width: 780px;
+
+  color: #102D45;
+
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 4.1vw, 62px);
+
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -2px;
+
+  margin-bottom: 20px;
+}
+
+.zd-hero-content h1 span {
+  color: #F47721;
+}
+
+/* DESCRIPTION */
+
+.zd-hero-description {
+  max-width: 620px;
+
+  color: #344E63;
+
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.75;
+
+  margin-bottom: 26px;
+}
+
+/* BUTTONS */
+
+.zd-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  margin-bottom: 40px;
+}
+
+.zd-hero-primary-btn,
+.zd-hero-secondary-btn {
+  min-height: 58px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+
+  padding: 14px 20px;
+
+  border-radius: 12px;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  transition: all 0.35s ease;
+}
+
+.zd-hero-primary-btn {
+  color: #FFFFFF;
+  background: #F47721;
+
+  box-shadow: 0 8px 20px rgba(244, 119, 33, 0.18);
+}
+
+.zd-hero-primary-btn:hover {
+  color: #FFFFFF;
+  background: #D95F12;
+
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(244, 119, 33, 0.25);
+}
+
+.zd-hero-secondary-btn {
+  color: #163247;
+  background: rgba(255, 255, 255, 0.8);
+
+  border: 1.5px solid #163247;
+}
+
+.zd-hero-secondary-btn:hover {
+  color: #FFFFFF;
+  background: #0B5F8A;
+  border-color: #0B5F8A;
+
+  transform: translateY(-4px);
+}
+
+.zd-hero-secondary-btn svg {
+  color: inherit;
+}
+
+/* FEATURE HIGHLIGHTS */
+
+.zd-hero-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  max-width: 690px;
+}
+
+.zd-hero-feature {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 0 12px;
+
+  text-align: center;
+}
+
+.zd-hero-feature:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+  top: 17px;
+
+  width: 1px;
+  height: 62px;
+
+  background: #BBD4E2;
+}
+
+.zd-hero-feature-icon {
+  display: grid;
+  place-items: center;
+
+  height: 47px;
+
+  color: #0B5F8A;
+
+  margin-bottom: 8px;
+
+  transition: transform 0.3s ease;
+}
+
+.zd-hero-feature:hover .zd-hero-feature-icon {
+  color: #F47721;
+  transform: translateY(-5px);
+}
+
+.zd-hero-feature h3 {
+  color: #163247;
+
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.zd-hero-feature p {
+  color: #163247;
+
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* RIGHT IMAGE */
+
+.zd-hero-visual {
+  position: relative;
+
+  height: 100%;
+  min-height: 620px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  animation: zdHeroVisual 1s ease both;
+}
+
+@keyframes zdHeroVisual {
+  from {
+    opacity: 0;
+    transform: translateX(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.zd-hero-image-frame {
+  position: absolute;
+
+  top: 0;
+  right: -40px;
+
+  width: 108%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 48% 0 0 48% / 65% 0 0 65%;
+
+  border-left: 9px solid #F47721;
+
+  box-shadow: -15px 0 35px rgba(11, 95, 138, 0.08);
+}
+
+.zd-hero-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.8s ease;
+}
+
+.zd-hero-image-frame:hover .zd-hero-image {
+  transform: scale(1.04);
+}
+
+.zd-hero-image-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(11, 95, 138, 0.05),
+    transparent 40%,
+    rgba(7, 59, 89, 0.12)
+  );
+}
+
+/* IMAGE LABEL */
+
+.zd-hero-image-label {
+  position: absolute;
+
+  top: 17%;
+  right: 12%;
+
+  color: #FFFFFF;
+
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.zd-hero-image-label span {
+  display: block;
+
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.zd-hero-image-label p {
+  font-size: 17px;
+  font-weight: 600;
+
+  margin-top: 5px;
+}
+
+.zd-hero-image-label div {
+  width: 90px;
+  height: 3px;
+
+  background: #F47721;
+
+  border-radius: 50%;
+  transform: rotate(-8deg);
+
+  margin-top: 13px;
+}
+
+/* BOTTOM WAVES */
+
+.zd-hero-bottom-wave {
+  position: absolute;
+  z-index: 5;
+
+  bottom: -1px;
+  left: 0;
+
+  width: 100%;
+  height: 76px;
+
+  pointer-events: none;
+
+  background: #FFFFFF;
+
+  clip-path: polygon(
+    0 48%,
+    10% 76%,
+    22% 94%,
+    37% 63%,
+    50% 45%,
+    65% 83%,
+    80% 96%,
+    100% 25%,
+    100% 100%,
+    0 100%
+  );
+}
+
+.zd-hero-wave-orange {
+  position: absolute;
+  inset: 0;
+
+  background: #F47721;
+
+  clip-path: polygon(
+    0 52%,
+    10% 82%,
+    22% 100%,
+    0 100%
+  );
+}
+
+.zd-hero-wave-blue {
+  position: absolute;
+  inset: 0;
+
+  background: #0B5F8A;
+
+  clip-path: polygon(
+    78% 96%,
+    100% 25%,
+    100% 43%,
+    78% 100%
+  );
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .zd-hero {
+    min-height: 650px;
+  }
+
+  .zd-hero-container {
+    width: calc(100% - 50px);
+    min-height: 600px;
+
+    grid-template-columns: 1fr 0.85fr;
+  }
+
+  .zd-hero-content h1 {
+    font-size: 43px;
+    letter-spacing: -1.5px;
+  }
+
+  .zd-hero-description {
+    font-size: 15px;
+  }
+
+  .zd-hero-actions {
+    gap: 10px;
+  }
+
+  .zd-hero-primary-btn,
+  .zd-hero-secondary-btn {
+    min-height: 52px;
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+
+  .zd-hero-visual {
+    min-height: 600px;
+  }
+
+  .zd-hero-image-frame {
+    right: -25px;
+    width: 115%;
+  }
+
+  .zd-hero-feature {
+    padding: 0 6px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 760px) {
+
+  .zd-hero {
+    min-height: auto;
+    display: block;
+  }
+
+  .zd-hero-container {
+    width: calc(100% - 36px);
+    min-height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .zd-hero-content {
+    width: 100%;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .zd-hero-badge {
+    margin-bottom: 16px;
+    padding: 9px 14px;
+
+    font-size: 12px;
+  }
+
+  .zd-hero-content h1 {
+    font-size: clamp(34px, 8vw, 46px);
+    line-height: 1.14;
+    letter-spacing: -1.2px;
+
+    margin-bottom: 15px;
+  }
+
+  .zd-hero-description {
+    font-size: 14px;
+    line-height: 1.7;
+
+    margin-bottom: 19px;
+  }
+
+  .zd-hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 11px;
+    margin-bottom: 22px;
+  }
+
+  .zd-hero-primary-btn,
+  .zd-hero-secondary-btn {
+    width: 100%;
+    min-height: 52px;
+    font-size: 13px;
+  }
+
+  .zd-hero-features {
+    max-width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .zd-hero-feature {
+    padding: 0 4px;
+  }
+
+  .zd-hero-feature-icon {
+    height: 38px;
+  }
+
+  .zd-hero-feature-icon svg {
+    width: 27px;
+    height: 27px;
+  }
+
+  .zd-hero-feature h3,
+  .zd-hero-feature p {
+    font-size: 12px;
+  }
+
+  .zd-hero-feature:not(:last-child)::after {
+    top: 8px;
+    height: 54px;
+  }
+
+  .zd-hero-visual {
+    width: 100%;
+    height: 340px;
+    min-height: 340px;
+
+    justify-content: center;
+  }
+
+  .zd-hero-image-frame {
+    position: absolute;
+
+    width: 110%;
+    height: 100%;
+
+    right: -5%;
+
+    border-left: 5px solid #F47721;
+    border-radius: 45% 0 0 35% / 30% 0 0 25%;
+  }
+
+  .zd-hero-image-label {
+    top: 13%;
+    right: 9%;
+  }
+
+  .zd-hero-image-label span {
+    font-size: 15px;
+  }
+
+  .zd-hero-image-label p {
+    font-size: 12px;
+  }
+
+  .zd-hero-bottom-wave {
+    height: 40px;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+
+  .zd-hero-container {
+    width: calc(100% - 28px);
+  }
+
+  .zd-hero-content h1 {
+    font-size: 32px;
+  }
+
+  .zd-hero-features {
+    gap: 2px;
+  }
+
+  .zd-hero-feature h3,
+  .zd-hero-feature p {
+    font-size: 12px;
+  }
+
+  .zd-hero-visual {
+    height: 290px;
+    min-height: 290px;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .zd-hero *,
+  .zd-hero *::before,
+  .zd-hero *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

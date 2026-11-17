@@ -1,0 +1,420 @@
+
+/* ========================================
+   ZIADENT AI FLOATING ASSISTANT
+======================================== */
+
+.zd-ai-wrapper {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+
+  z-index: 99999;
+
+  font-family: inherit;
+}
+
+/* FLOATING BUTTON */
+
+.zd-ai-floating {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-width: 62px;
+  height: 62px;
+
+  padding: 0 18px;
+
+  color: #FFFFFF;
+  background: linear-gradient(
+    135deg,
+    #0B5F8A,
+    #084768
+  );
+
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+
+  box-shadow:
+    0 8px 25px rgba(7, 59, 89, 0.3),
+    0 0 0 5px rgba(11, 95, 138, 0.1);
+
+  cursor: pointer;
+
+  transition: all 0.35s ease;
+}
+
+.zd-ai-floating:hover {
+  background: #F47721;
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 12px 30px rgba(244, 119, 33, 0.3);
+}
+
+.zd-ai-floating-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zd-ai-floating-label {
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.zd-ai-floating.active {
+  background: #F47721;
+  transform: rotate(0deg);
+}
+
+/* PULSE */
+
+.zd-ai-pulse {
+  position: absolute;
+  inset: -6px;
+
+  border: 1px solid rgba(11, 95, 138, 0.4);
+  border-radius: 50px;
+
+  animation: zdAiPulse 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes zdAiPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+
+/* CHAT PANEL */
+
+.zd-ai-panel {
+  position: absolute;
+  right: 0;
+  bottom: 82px;
+
+  width: 365px;
+  max-width: calc(100vw - 32px);
+
+  overflow: hidden;
+
+  background: #FFFFFF;
+  border: 1px solid #DCEAF2;
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 60px rgba(7, 59, 89, 0.2);
+
+  animation: zdAiOpen 0.3s ease;
+}
+
+@keyframes zdAiOpen {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* HEADER */
+
+.zd-ai-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px;
+
+  color: #FFFFFF;
+  background: #073B59;
+}
+
+.zd-ai-header-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.zd-ai-avatar {
+  position: relative;
+
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  color: #FFFFFF;
+  background: #0B5F8A;
+
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 14px;
+}
+
+.zd-ai-avatar span {
+  position: absolute;
+  right: -3px;
+  bottom: -3px;
+
+  width: 11px;
+  height: 11px;
+
+  background: #F47721;
+  border: 2px solid #073B59;
+  border-radius: 50%;
+}
+
+.zd-ai-header-info h3 {
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.zd-ai-header-info p {
+  color: #DCEAF2;
+  font-size: 12px;
+}
+
+.zd-ai-close {
+  display: grid;
+  place-items: center;
+
+  width: 35px;
+  height: 35px;
+
+  color: #FFFFFF;
+  background: rgba(255,255,255,0.1);
+
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.zd-ai-close:hover {
+  background: #F47721;
+}
+
+/* CHAT BODY */
+
+.zd-ai-chat-body {
+  padding: 20px 16px;
+  min-height: 280px;
+
+  background: #F2F7FA;
+}
+
+.zd-ai-welcome {
+  padding: 17px;
+
+  background: #FFFFFF;
+  border: 1px solid #DCEAF2;
+  border-radius: 15px;
+}
+
+.zd-ai-welcome-icon {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  color: #F47721;
+  background: #FFF1E7;
+
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.zd-ai-welcome h3 {
+  color: #163247;
+  font-size: 16px;
+  font-weight: 800;
+
+  margin-bottom: 8px;
+}
+
+.zd-ai-welcome p {
+  color: #536A7B;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* SUGGESTIONS */
+
+.zd-ai-suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  margin-top: 18px;
+}
+
+.zd-ai-suggestions > span {
+  color: #536A7B;
+  font-size: 12px;
+  font-weight: 700;
+
+  margin-bottom: 2px;
+}
+
+.zd-ai-suggestions button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  width: 100%;
+
+  padding: 11px 12px;
+
+  color: #163247;
+  background: #FFFFFF;
+
+  border: 1px solid #DCEAF2;
+  border-radius: 10px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-align: left;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.zd-ai-suggestions button:hover {
+  color: #0B5F8A;
+  border-color: #0B5F8A;
+  transform: translateX(3px);
+}
+
+.zd-ai-suggestions button span {
+  color: #F47721;
+  font-size: 17px;
+}
+
+/* INPUT */
+
+.zd-ai-input-area {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 12px 14px;
+
+  background: #FFFFFF;
+  border-top: 1px solid #DCEAF2;
+}
+
+.zd-ai-input-area input {
+  flex: 1;
+  min-width: 0;
+
+  height: 43px;
+
+  padding: 0 13px;
+
+  color: #163247;
+  background: #F2F7FA;
+
+  border: 1px solid #DCEAF2;
+  border-radius: 10px;
+
+  outline: none;
+  font-size: 13px;
+}
+
+.zd-ai-input-area input:focus {
+  border-color: #0B5F8A;
+}
+
+.zd-ai-input-area input::placeholder {
+  color: #8295A3;
+}
+
+.zd-ai-input-area button {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #FFFFFF;
+  background: #F47721;
+
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.zd-ai-input-area button:hover {
+  background: #C6530B;
+}
+
+/* FOOTER NOTE */
+
+.zd-ai-footer-note {
+  padding: 10px;
+
+  color: #8295A3;
+  background: #FFFFFF;
+
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .zd-ai-wrapper {
+    right: 16px;
+    bottom: 18px;
+  }
+
+  .zd-ai-panel {
+    right: 0;
+    bottom: 76px;
+
+    width: min(365px, calc(100vw - 32px));
+  }
+
+  .zd-ai-floating {
+    height: 56px;
+    min-width: 56px;
+    padding: 0 15px;
+  }
+
+  .zd-ai-chat-body {
+    min-height: 260px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zd-ai-wrapper *,
+  .zd-ai-wrapper *::before,
+  .zd-ai-wrapper *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,513 @@
+
+/* =========================================
+   ZIADENT PREMIUM FOOTER
+   Clinical Blue + Vibrant Orange
+========================================= */
+
+.zd-footer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+
+  background: #073B59;
+  color: #FFFFFF;
+}
+
+.zd-footer-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(1400px, calc(100% - 70px));
+  margin: auto;
+}
+
+/* BACKGROUND ORBS */
+
+.zd-footer-orb {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.zd-orb-one {
+  width: 480px;
+  height: 480px;
+
+  top: -300px;
+  right: -100px;
+
+  background: radial-gradient(
+    circle,
+    rgba(11, 95, 138, 0.65),
+    transparent 70%
+  );
+}
+
+.zd-orb-two {
+  width: 420px;
+  height: 420px;
+
+  bottom: -300px;
+  left: -130px;
+
+  background: radial-gradient(
+    circle,
+    rgba(244, 119, 33, 0.15),
+    transparent 70%
+  );
+}
+
+/* MAIN LAYOUT */
+
+.zd-footer-main {
+  display: grid;
+
+  grid-template-columns:
+    1.18fr
+    0.78fr
+    1.25fr
+    1.12fr;
+
+  gap: 34px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* BRAND */
+
+.zd-footer-brand {
+  padding-right: 18px;
+}
+
+.zd-footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+.zd-footer-logo-mark {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+}
+
+.zd-footer-logo-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.zd-footer-logo-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.zd-footer-logo-copy span {
+  color: #FFFFFF;
+  font-size: 29px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.zd-footer-logo-copy small {
+  color: #DCEAF2;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.zd-footer-description {
+  max-width: 330px;
+
+  color: #D6E5EF;
+  font-size: 14px;
+  line-height: 1.8;
+
+  margin-bottom: 20px;
+}
+
+/* SOCIAL AREA */
+
+.zd-footer-social-area h4 {
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+
+  margin-bottom: 12px;
+}
+
+.zd-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.zd-social-icon {
+  width: 39px;
+  height: 39px;
+
+  display: grid;
+  place-items: center;
+
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 50%;
+
+  font-size: 17px;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.zd-social-icon:hover {
+  color: #FFFFFF;
+  background: #F47721;
+  border-color: #F47721;
+
+  transform: translateY(-4px);
+}
+
+/* COLUMNS */
+
+.zd-footer-column {
+  padding-left: 23px;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.zd-footer-title {
+  margin-bottom: 19px;
+}
+
+.zd-footer-title h3 {
+  color: #FFFFFF;
+  font-size: 19px;
+  font-weight: 800;
+
+  margin-bottom: 11px;
+}
+
+.zd-footer-title span {
+  display: block;
+
+  width: 45px;
+  height: 4px;
+
+  border-radius: 10px;
+  background: #F47721;
+}
+
+/* LINK LIST */
+
+.zd-footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.zd-footer-list li a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #D6E5EF;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  transition: all 0.3s ease;
+}
+
+.zd-footer-list li a svg {
+  color: #F47721;
+  font-size: 10px;
+  flex-shrink: 0;
+
+  transition: transform 0.3s ease;
+}
+
+.zd-footer-list li a:hover {
+  color: #FFFFFF;
+  transform: translateX(4px);
+}
+
+.zd-footer-list li a:hover svg {
+  transform: translateX(3px);
+}
+
+/* LOCATION */
+
+.zd-footer-location {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  margin-bottom: 19px;
+}
+
+.zd-footer-location-icon {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #FFFFFF;
+  background: rgba(11, 95, 138, 0.8);
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+
+  font-size: 19px;
+
+  transition: all 0.3s ease;
+}
+
+.zd-footer-location:hover .zd-footer-location-icon {
+  color: #F47721;
+  transform: translateY(-3px);
+}
+
+.zd-footer-location-content small {
+  display: block;
+
+  color: #AFC8D7;
+  font-size: 12px;
+
+  margin-bottom: 5px;
+}
+
+.zd-footer-location-content p {
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* CONTACT COPY */
+
+.zd-footer-contact-copy {
+  color: #D6E5EF;
+  font-size: 13px;
+  line-height: 1.7;
+
+  margin-bottom: 17px;
+}
+
+/* BOOKING BUTTON */
+
+.zd-footer-booking {
+  width: 100%;
+  min-height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 12px;
+
+  color: #FFFFFF;
+  background: #F47721;
+
+  border-radius: 10px;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  transition: all 0.3s ease;
+}
+
+.zd-footer-booking svg {
+  flex-shrink: 0;
+  font-size: 17px;
+}
+
+.zd-footer-booking:hover {
+  color: #FFFFFF;
+  background: #D95F12;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 25px rgba(244, 119, 33, 0.22);
+}
+
+/* TRUST NOTE */
+
+.zd-footer-trust-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #B8D0DD;
+  font-size: 12px;
+
+  margin-top: 15px;
+}
+
+.zd-footer-trust-note span {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+
+  background: #F47721;
+  border-radius: 50%;
+}
+
+/* BOTTOM */
+
+.zd-footer-bottom {
+  min-height: 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.zd-footer-bottom p {
+  color: #D6E5EF;
+  font-size: 12px;
+}
+
+.zd-footer-bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.zd-footer-bottom-links a,
+.zd-back-top {
+  color: #D6E5EF;
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: color 0.3s ease;
+}
+
+.zd-footer-bottom-links a:hover,
+.zd-back-top:hover {
+  color: #F47721;
+}
+
+.zd-bottom-separator {
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.zd-back-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.zd-back-top svg {
+  color: #F47721;
+}
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+  .zd-footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .zd-footer-brand {
+    padding-right: 20px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .zd-footer-container {
+    width: calc(100% - 36px);
+  }
+
+  .zd-footer-main {
+    grid-template-columns: 1fr;
+    gap: 22px;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .zd-footer-brand {
+    padding-right: 0;
+  }
+
+  .zd-footer-column {
+    padding-left: 0;
+    padding-top: 17px;
+
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .zd-footer-description {
+    max-width: 100%;
+  }
+
+  .zd-footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  .zd-footer-bottom-links {
+    flex-wrap: wrap;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+  .zd-footer-logo-copy span {
+    font-size: 25px;
+  }
+
+  .zd-footer-logo-mark {
+    width: 50px;
+    height: 50px;
+  }
+
+  .zd-footer-booking {
+    gap: 5px;
+    font-size: 12px;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .zd-footer *,
+  .zd-footer *::before,
+  .zd-footer *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
