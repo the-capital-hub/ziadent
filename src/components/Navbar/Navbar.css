@@ -616,3 +616,122 @@
     transition: none !important;
   }
 }
+
+/* =====================================
+   PRODUCTS DROPDOWN
+===================================== */
+
+.zc-nav-dropdown {
+  position: relative;
+}
+
+.zc-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.zc-dropdown-trigger > a {
+  text-decoration: none;
+}
+
+.zc-dropdown-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 4px;
+  color: #0B5F8A;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.zc-dropdown-arrow svg,
+.zc-mobile-product-toggle svg {
+  transition: transform 0.3s ease;
+}
+
+.zc-chevron-open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown visible on hover and click */
+
+.zc-nav-dropdown:hover .zc-dropdown-menu,
+.zc-nav-dropdown:focus-within .zc-dropdown-menu,
+.zc-dropdown-visible {
+  display: block;
+}
+
+.zc-dropdown-all {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 11px 14px;
+  margin: 6px 10px;
+  color: #0B5F8A;
+  background: #EAF4F9;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.zc-dropdown-all:hover {
+  color: #FFFFFF;
+  background: #0B5F8A;
+}
+
+.zc-dropdown-item.active {
+  color: #0B5F8A;
+  background: #EAF4F9;
+}
+
+/* =====================================
+   MOBILE PRODUCTS
+===================================== */
+
+.zc-mobile-products-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.zc-mobile-product-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  text-align: left;
+}
+
+.zc-mobile-product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 5px 0 8px 15px;
+  border-left: 2px solid #F47721;
+  margin: 5px 0 10px 8px;
+}
+
+.zc-mobile-product-list a {
+  display: block;
+  padding: 10px 12px;
+  color: #536A7B;
+  font-size: 13px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.25s ease;
+}
+
+.zc-mobile-product-list a:hover,
+.zc-mobile-product-list a.active {
+  color: #0B5F8A;
+  background: #EAF4F9;
+}

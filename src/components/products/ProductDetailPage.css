@@ -1,0 +1,968 @@
+
+/* =========================================
+   ZIADENT REUSABLE PRODUCT DETAIL PAGE
+========================================= */
+
+.pdp-page {
+  --p-blue: #0B5F8A;
+  --p-dark: #10265B;
+  --p-aqua: #00A2CB;
+  --p-gold: #F9B632;
+  --p-ink: #163247;
+  --p-muted: #536A7B;
+  --p-bg: #F0F9FD;
+
+  width: 100%;
+  overflow: hidden;
+  color: var(--p-ink);
+  background: var(--p-bg);
+  font-family: "Manrope", sans-serif;
+}
+
+.pdp-page * {
+  box-sizing: border-box;
+}
+
+.pdp-page a {
+  text-decoration: none;
+}
+
+.pdp-container {
+  width: min(1400px, calc(100% - 48px));
+  margin: auto;
+}
+
+.pdp-label {
+  min-height: 27px;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 13px;
+  border: 1px solid var(--p-aqua);
+  border-radius: 30px;
+  color: var(--p-blue);
+  background: #FFFFFF;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+
+/* HERO */
+
+.pdp-hero {
+  position: relative;
+  min-height: 350px;
+  padding: 20px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 20% 25%, rgba(74,196,229,.2), transparent 48%),
+    linear-gradient(110deg, #EAF8FD, #D9F1FA);
+}
+
+.pdp-hero-inner {
+  position: relative;
+  width: min(1440px, 100%);
+  min-height: 310px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr .92fr;
+  align-items: center;
+}
+
+.pdp-hero-content {
+  position: relative;
+  z-index: 4;
+  padding: 8px 0 8px 4.5%;
+}
+
+.pdp-breadcrumb {
+  width: fit-content;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 17px;
+  padding: 6px 12px;
+  border: 1px solid #8BD7ED;
+  border-radius: 30px;
+  color: var(--p-dark);
+  background: rgba(255,255,255,.7);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pdp-breadcrumb a {
+  color: var(--p-dark);
+}
+
+.pdp-breadcrumb span {
+  color: var(--p-blue);
+}
+
+.pdp-eyebrow {
+  margin-bottom: 7px;
+  color: var(--p-blue);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.pdp-hero h1 {
+  max-width: 600px;
+  margin: 0;
+  color: var(--p-dark);
+  font-size: clamp(38px, 4.3vw, 57px);
+  font-weight: 850;
+  line-height: 1.08;
+  letter-spacing: -2px;
+}
+
+.pdp-title-line {
+  width: 210px;
+  height: 4px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: var(--p-gold);
+  transform: rotate(-2deg);
+}
+
+.pdp-hero-description {
+  max-width: 460px;
+  margin: 11px 0 17px;
+  color: #263B57;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.pdp-hero-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.pdp-feature {
+  min-width: 95px;
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 30px;
+  color: var(--p-dark);
+  background: rgba(255,255,255,.72);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.pdp-feature svg {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  color: var(--p-blue);
+  stroke-width: 2.2;
+}
+
+.pdp-hero-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 51%;
+  height: 100%;
+  overflow: hidden;
+  clip-path: polygon(
+    25% 0, 100% 0, 100% 100%, 17% 100%,
+    9% 86%, 4% 67%, 3% 47%, 10% 26%
+  );
+}
+
+.pdp-hero-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.pdp-hero-curve {
+  position: absolute;
+  z-index: 3;
+  top: -45px;
+  right: 48%;
+  width: 130px;
+  height: 460px;
+  border-right: 7px solid var(--p-gold);
+  border-radius: 0 100% 100% 0;
+  transform: rotate(19deg);
+  pointer-events: none;
+}
+
+
+/* OVERVIEW */
+
+.pdp-overview {
+  padding: 20px 0;
+  background: radial-gradient(ellipse at 50% 0%, #FFFFFF, #F0F9FD 80%);
+}
+
+.pdp-overview-grid {
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.pdp-overview-image {
+  height: 205px;
+  overflow: hidden;
+  border: 3px solid #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 0 5px 17px rgba(16,91,130,.1);
+}
+
+.pdp-overview-image img,
+.pdp-application-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.pdp-overview-content h2 {
+  margin: 10px 0;
+  color: var(--p-dark);
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.pdp-overview-content p {
+  margin: 0 0 9px;
+  color: #263B57;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.pdp-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+  color: var(--p-blue);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.pdp-text-link svg {
+  width: 16px;
+  height: 16px;
+  color: var(--p-gold);
+  transition: transform .25s ease;
+}
+
+.pdp-text-link:hover svg {
+  transform: translateX(5px);
+}
+
+
+/* SHARED SECTION HEADING */
+
+.pdp-heading {
+  margin: 0 auto 18px;
+  text-align: center;
+}
+
+.pdp-heading h2 {
+  margin: 8px 0 6px;
+  color: var(--p-dark);
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.pdp-heading h2 span {
+  color: var(--p-gold);
+}
+
+.pdp-heading > p {
+  max-width: 660px;
+  margin: auto;
+  color: var(--p-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* BENEFITS */
+
+.pdp-benefits {
+  padding: 10px 0 20px;
+  background: #F0F9FD;
+}
+
+.pdp-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pdp-benefit-card {
+  min-height: 130px;
+  padding: 12px 15px;
+  border: 1px solid #DCEEF6;
+  border-radius: 19px;
+  background: rgba(255,255,255,.85);
+  box-shadow: 0 4px 12px rgba(0,117,163,.08);
+  text-align: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.pdp-benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 9px 20px rgba(0,117,163,.12);
+}
+
+.pdp-benefit-icon {
+  width: 38px;
+  height: 38px;
+  margin: 0 auto 5px;
+  display: grid;
+  place-items: center;
+  color: var(--p-aqua);
+}
+
+.pdp-benefit-icon svg {
+  width: 35px;
+  height: 35px;
+  stroke-width: 2;
+}
+
+.pdp-benefit-card h3 {
+  margin: 0 0 5px;
+  color: var(--p-dark);
+  font-size: 15px;
+  font-weight: 850;
+}
+
+.pdp-benefit-card p {
+  max-width: 240px;
+  margin: auto;
+  color: #263B57;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* SERVICE SCOPE */
+
+.pdp-applications {
+  padding: 0 0 20px;
+  background: #F0F9FD;
+}
+
+.pdp-application-panel {
+  display: grid;
+  grid-template-columns: 1fr 1.12fr;
+  align-items: center;
+  gap: 22px;
+  padding: 12px 14px 12px 20px;
+  border: 1px solid #FFFFFF;
+  border-radius: 23px;
+  background: rgba(255,255,255,.85);
+  box-shadow: 0 5px 15px rgba(16,91,130,.07);
+}
+
+.pdp-application-content h2 {
+  margin: 8px 0;
+  color: var(--p-dark);
+  font-size: 30px;
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.pdp-application-content h2 span {
+  color: var(--p-blue);
+}
+
+.pdp-application-content > p {
+  margin: 0 0 12px;
+  color: var(--p-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.pdp-application-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.pdp-application-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--p-dark);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.pdp-application-item > span {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #FFFFFF;
+  background: var(--p-gold);
+}
+
+.pdp-application-item svg {
+  width: 13px;
+  height: 13px;
+  stroke-width: 3;
+}
+
+.pdp-application-image {
+  height: 165px;
+  overflow: hidden;
+  border: 2px solid #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 0 3px 12px rgba(16,91,130,.1);
+}
+
+
+/* WORKFLOW */
+
+.pdp-workflow {
+  padding: 10px 0 20px;
+  background: #F0F9FD;
+}
+
+.pdp-workflow-grid {
+  display: grid;
+  grid-template-columns: 1fr 25px 1fr 25px 1fr 25px 1fr 25px 1fr;
+  align-items: center;
+  gap: 5px;
+}
+
+.pdp-workflow-step {
+  min-width: 0;
+  text-align: center;
+}
+
+.pdp-workflow-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 8px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #BCE7F4;
+  border-radius: 50%;
+  color: var(--p-blue);
+  background: linear-gradient(145deg, #D9F3FC, #FFFFFF);
+  box-shadow: 0 4px 10px rgba(0,134,178,.09);
+}
+
+.pdp-workflow-icon svg {
+  width: 31px;
+  height: 31px;
+  stroke-width: 1.8;
+}
+
+.pdp-workflow-step h3 {
+  margin: 0 0 4px;
+  color: var(--p-dark);
+  font-size: 13px;
+  font-weight: 850;
+  line-height: 1.35;
+}
+
+.pdp-workflow-step p {
+  max-width: 155px;
+  margin: auto;
+  color: #263B57;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.pdp-workflow-arrow {
+  display: grid;
+  place-items: center;
+  color: var(--p-blue);
+}
+
+.pdp-workflow-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* RELATED SERVICES */
+
+.pdp-related {
+  padding: 0 0 20px;
+  background: #F0F9FD;
+}
+
+.pdp-related-panel {
+  display: grid;
+  grid-template-columns: .9fr 2.1fr;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+  border: 1px solid #FFFFFF;
+  border-radius: 23px;
+  background: rgba(255,255,255,.8);
+  box-shadow: 0 5px 15px rgba(16,91,130,.06);
+}
+
+.pdp-related-heading {
+  padding: 5px 5px 5px 9px;
+}
+
+.pdp-related-heading h2 {
+  margin: 9px 0 8px;
+  color: var(--p-dark);
+  font-size: 26px;
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.pdp-related-heading h2 span {
+  display: block;
+  color: var(--p-blue);
+}
+
+.pdp-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.pdp-related-card {
+  min-width: 0;
+  min-height: 105px;
+  display: grid;
+  grid-template-columns: 42% 58%;
+  align-items: center;
+  gap: 8px;
+  padding: 7px;
+  border: 1px solid #E0EDF3;
+  border-radius: 15px;
+  color: var(--p-dark);
+  background: #FFFFFF;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.pdp-related-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 17px rgba(16,91,130,.1);
+}
+
+.pdp-related-image {
+  height: 88px;
+  overflow: hidden;
+  border-radius: 11px;
+  background: #EAF3F7;
+}
+
+.pdp-related-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.pdp-related-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+}
+
+.pdp-related-info h3 {
+  margin: 0;
+  color: var(--p-dark);
+  font-size: 13px;
+  font-weight: 850;
+  line-height: 1.35;
+}
+
+.pdp-related-info > span {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--p-aqua);
+  border-radius: 50%;
+  color: var(--p-blue);
+}
+
+.pdp-related-info svg {
+  width: 17px;
+  height: 17px;
+}
+
+
+/* CTA */
+
+.pdp-cta {
+  position: relative;
+  min-height: 145px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 55% 0%, #35BCD7, transparent 55%),
+    linear-gradient(110deg, #0098BA, #007B9F);
+}
+
+.pdp-cta-wave {
+  position: absolute;
+  top: -34px;
+  left: -5%;
+  width: 110%;
+  height: 57px;
+  border-top: 7px solid var(--p-gold);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  background: #F0F9FD;
+  transform: rotate(-1deg);
+}
+
+.pdp-cta-inner {
+  position: relative;
+  z-index: 2;
+  min-height: 145px;
+  padding: 28px 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.pdp-cta-left {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.pdp-cta-icon {
+  width: 76px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  padding-right: 15px;
+  border-right: 1px solid rgba(255,255,255,.4);
+  color: #FFFFFF;
+}
+
+.pdp-cta-icon svg {
+  width: 54px;
+  height: 54px;
+  stroke-width: 1.8;
+}
+
+.pdp-cta-left h2 {
+  margin: 0 0 7px;
+  color: #FFFFFF;
+  font-size: clamp(20px, 2.4vw, 27px);
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+.pdp-cta-left p {
+  max-width: 470px;
+  margin: 0;
+  color: #FFFFFF;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.pdp-cta-button {
+  min-height: 53px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding: 0 19px;
+  border: 2px solid #FFFFFF;
+  border-radius: 35px;
+  color: #09285E;
+  background: linear-gradient(110deg, #FFD34D, #FFB900);
+  box-shadow: 0 5px 14px rgba(0,56,84,.18);
+  font-size: 13px;
+  font-weight: 850;
+  transition: .3s ease;
+}
+
+.pdp-cta-button svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+}
+
+.pdp-cta-button:hover {
+  color: var(--p-dark);
+  background: #FFFFFF;
+  transform: translateY(-3px);
+}
+
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .pdp-hero-content {
+    width: 59%;
+  }
+
+  .pdp-hero-image {
+    width: 48%;
+  }
+
+  .pdp-hero-curve {
+    right: 46%;
+  }
+
+  .pdp-hero h1 {
+    font-size: 43px;
+  }
+
+  .pdp-related-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .pdp-container {
+    width: calc(100% - 32px);
+  }
+
+  .pdp-hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .pdp-hero-content {
+    width: 100%;
+    padding: 0 18px;
+  }
+
+  .pdp-hero h1 {
+    font-size: 43px;
+  }
+
+  .pdp-hero-image {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    clip-path: none;
+    border-radius: 60% 0 0 0 / 20% 0 0 0;
+  }
+
+  .pdp-hero-curve {
+    display: none;
+  }
+
+  .pdp-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .pdp-overview-image {
+    height: 230px;
+  }
+
+  .pdp-benefit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pdp-application-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .pdp-application-image {
+    height: 210px;
+  }
+
+  .pdp-workflow-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .pdp-workflow-arrow {
+    display: none;
+  }
+
+  .pdp-workflow-step h3 {
+    font-size: 12px;
+  }
+
+  .pdp-related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pdp-related-card {
+    grid-template-columns: 115px 1fr;
+  }
+
+  .pdp-related-image {
+    height: 85px;
+  }
+
+  .pdp-cta-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 35px 0 18px;
+  }
+
+  .pdp-cta-button {
+    width: 100%;
+  }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 520px) {
+  .pdp-hero h1 {
+    font-size: 37px;
+    letter-spacing: -1.2px;
+  }
+
+  .pdp-hero-description {
+    font-size: 13px;
+  }
+
+  .pdp-hero-features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pdp-hero-image {
+    height: 220px;
+  }
+
+  .pdp-overview,
+  .pdp-benefits,
+  .pdp-applications,
+  .pdp-workflow,
+  .pdp-related {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .pdp-overview-image {
+    height: 185px;
+  }
+
+  .pdp-overview-content h2 {
+    font-size: 27px;
+  }
+
+  .pdp-overview-content p {
+    font-size: 13px;
+  }
+
+  .pdp-heading h2 {
+    font-size: 27px;
+  }
+
+  .pdp-benefit-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .pdp-benefit-card {
+    min-height: 115px;
+  }
+
+  .pdp-application-panel {
+    padding: 14px;
+  }
+
+  .pdp-application-content h2 {
+    font-size: 27px;
+  }
+
+  .pdp-application-item {
+    font-size: 12px;
+  }
+
+  .pdp-application-image {
+    height: 175px;
+  }
+
+  .pdp-workflow-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px 10px;
+  }
+
+  .pdp-workflow-step:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .pdp-workflow-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .pdp-workflow-step p {
+    font-size: 12px;
+  }
+
+  .pdp-related-heading h2 {
+    font-size: 25px;
+  }
+
+  .pdp-related-card {
+    grid-template-columns: 105px 1fr;
+  }
+
+  .pdp-cta-left {
+    align-items: flex-start;
+    gap: 11px;
+  }
+
+  .pdp-cta-icon {
+    width: 51px;
+    height: 57px;
+    padding-right: 8px;
+  }
+
+  .pdp-cta-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pdp-cta-left h2 {
+    font-size: 20px;
+  }
+
+  .pdp-cta-left p {
+    font-size: 12px;
+  }
+
+  .pdp-cta-button {
+    min-height: 49px;
+    gap: 7px;
+    padding: 0 9px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pdp-page *,
+  .pdp-page *::before,
+  .pdp-page *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

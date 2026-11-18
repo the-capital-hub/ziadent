@@ -1,0 +1,844 @@
+
+/* =========================================
+   ZIADENT PRODUCTS PAGE
+   Premium Blue and Gold Theme
+========================================= */
+
+.zs-page {
+  --blue: #087DA6;
+  --blue-dark: #08245D;
+  --aqua: #00A2CB;
+  --gold: #F9B51B;
+  --ink: #10265B;
+  --muted: #40516B;
+  --pale: #EAF7FC;
+  --white: #FFFFFF;
+
+  width: 100%;
+  overflow: hidden;
+  color: var(--ink);
+  background: #F0F9FD;
+  font-family: "Manrope", sans-serif;
+}
+
+.zs-page * {
+  box-sizing: border-box;
+}
+
+.zs-page a {
+  text-decoration: none;
+}
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.zs-hero {
+  position: relative;
+  min-height: 335px;
+  padding: 20px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 15% 20%,
+      rgba(80, 205, 238, 0.20),
+      transparent 45%
+    ),
+    linear-gradient(110deg, #EAF8FD, #D9F2FB);
+}
+
+.zs-hero-inner {
+  position: relative;
+  width: min(1440px, 100%);
+  min-height: 295px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+}
+
+.zs-hero-copy {
+  position: relative;
+  z-index: 4;
+  padding: 10px 0 10px 4.6%;
+}
+
+.zs-breadcrumb {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 13px;
+  border: 1px solid #8DD7ED;
+  border-radius: 30px;
+  color: var(--blue-dark);
+  background: rgba(255, 255, 255, 0.58);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.zs-breadcrumb a {
+  color: var(--blue-dark);
+}
+
+.zs-breadcrumb span:nth-child(2) {
+  color: var(--blue);
+  font-size: 16px;
+}
+
+.zs-hero h1 {
+  margin: 15px 0 0;
+  color: var(--blue-dark);
+  font-size: clamp(37px, 4.2vw, 58px);
+  font-weight: 850;
+  letter-spacing: -2px;
+  line-height: 1.08;
+}
+
+.zs-hero h1 span {
+  color: #F4A900;
+}
+
+.zs-heading-underline {
+  width: 435px;
+  max-width: 85%;
+  height: 4px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #F7B600 18%,
+    #F7B600 85%,
+    transparent
+  );
+  transform: rotate(-1deg);
+}
+
+.zs-hero-description {
+  max-width: 510px;
+  margin: 10px 0 22px;
+  color: #273B58;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.zs-feature-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.zs-feature-chip {
+  min-width: 105px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 11px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.64);
+  color: var(--blue-dark);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.zs-feature-chip svg {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  color: var(--blue);
+  stroke-width: 2.3;
+}
+
+
+/* Hero image and curved divider */
+
+.zs-hero-media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 51%;
+  overflow: hidden;
+  clip-path: path("M 190 0 C 125 90 0 135 15 240 C 25 310 100 360 180 400 L 1000 400 L 1000 0 Z");
+  clip-path: polygon(
+    25% 0,
+    100% 0,
+    100% 100%,
+    17% 100%,
+    10% 88%,
+    4% 68%,
+    3% 48%,
+    10% 27%
+  );
+}
+
+.zs-hero-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.zs-hero-curve {
+  position: absolute;
+  z-index: 2;
+  top: -35px;
+  right: 49%;
+  width: 120px;
+  height: 440px;
+  border-right: 7px solid #F8B817;
+  border-radius: 0 100% 100% 0;
+  transform: rotate(18deg);
+  pointer-events: none;
+  filter: drop-shadow(0 2px 2px rgba(255, 255, 255, 0.7));
+}
+
+
+/* =========================================
+   OFFERINGS SECTION
+========================================= */
+
+.zs-offerings {
+  position: relative;
+  z-index: 3;
+  padding: 20px 2.1% 18px;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      #FFFFFF 0%,
+      #F6FCFE 52%,
+      #EAF7FC 100%
+    );
+}
+
+.zs-section-heading {
+  max-width: 850px;
+  margin: 0 auto 25px;
+  text-align: center;
+}
+
+.zs-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 29px;
+  padding: 4px 15px;
+  border: 1.5px solid var(--aqua);
+  border-radius: 30px;
+  color: var(--blue);
+  background: #FFFFFF;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.zs-section-heading h2 {
+  margin: 10px 0 8px;
+  color: var(--blue-dark);
+  font-size: clamp(27px, 3vw, 35px);
+  font-weight: 850;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+.zs-section-heading p {
+  max-width: 700px;
+  margin: auto;
+  color: #293950;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+
+/* =========================================
+   PRODUCT CARDS
+========================================= */
+
+.zs-product-grid {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.zs-product-card {
+  min-width: 0;
+  min-height: 188px;
+  display: grid;
+  grid-template-columns: 46% 54%;
+  align-items: stretch;
+  gap: 0;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 19px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 4px 12px rgba(27, 102, 139, 0.07),
+    inset 0 0 0 1px rgba(216, 238, 247, 0.55);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.zs-product-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 162, 203, 0.35);
+  box-shadow: 0 10px 24px rgba(27, 102, 139, 0.12);
+}
+
+.zs-product-image {
+  min-width: 0;
+  min-height: 164px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #E3EDF3;
+}
+
+.zs-product-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 164px;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
+.zs-product-card:hover .zs-product-image img {
+  transform: scale(1.06);
+}
+
+.zs-product-info {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 0 5px 0 15px;
+}
+
+.zs-product-icon {
+  width: 25px;
+  height: 25px;
+  margin: 0 0 5px;
+  color: #0086B2;
+  stroke-width: 2.3;
+}
+
+.zs-product-info h3 {
+  width: 100%;
+  margin: 0 0 8px;
+  color: var(--blue-dark);
+  font-size: 15px;
+  font-weight: 850;
+  line-height: 1.3;
+}
+
+.zs-product-info p {
+  width: 100%;
+  margin: 0 0 9px;
+  color: #17263D;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.zs-learn-button {
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: auto;
+  padding: 4px 11px;
+  border: 1.4px solid #009CC8;
+  border-radius: 25px;
+  color: var(--blue-dark);
+  background: #FFFFFF;
+  font-size: 12px;
+  font-weight: 800;
+  transition: 0.25s ease;
+}
+
+.zs-learn-button svg {
+  width: 14px;
+  height: 14px;
+  color: var(--blue);
+}
+
+.zs-learn-button:hover {
+  color: #FFFFFF;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.zs-learn-button:hover svg {
+  color: #FFFFFF;
+}
+
+
+/* =========================================
+   WHY CHOOSE PANEL
+========================================= */
+
+.zs-why-section {
+  padding: 16px 2.2% 20px;
+  background: #EAF7FC;
+}
+
+.zs-why-panel {
+  width: 100%;
+  max-width: 1400px;
+  min-height: 155px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 25% 40% 35%;
+  align-items: center;
+  padding: 12px 25px;
+  border: 1px solid #FFFFFF;
+  border-radius: 42px;
+  background:
+    radial-gradient(
+      ellipse at 35% 50%,
+      #FFFFFF,
+      rgba(255, 255, 255, 0.78) 70%
+    );
+  box-shadow: 0 5px 18px rgba(19, 109, 148, 0.06);
+}
+
+.zs-why-image {
+  width: 100%;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.zs-why-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+.zs-why-heading {
+  padding: 0 24px;
+}
+
+.zs-why-heading h2 {
+  margin: 0;
+  color: var(--blue-dark);
+  font-size: clamp(25px, 2.8vw, 34px);
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.zs-why-heading h2 span {
+  display: block;
+  margin-top: 3px;
+  color: #F0A500;
+}
+
+.zs-why-divider {
+  display: none;
+}
+
+.zs-benefit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-left: 25px;
+  border-left: 1px solid #D1E1E9;
+}
+
+.zs-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--blue-dark);
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.zs-check {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #FFFFFF;
+  background: #F6B500;
+}
+
+.zs-check svg {
+  width: 13px;
+  height: 13px;
+  stroke-width: 3;
+}
+
+
+/* =========================================
+   BOTTOM CTA
+========================================= */
+
+.zs-bottom-cta {
+  position: relative;
+  min-height: 150px;
+  margin-top: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 55% 0%,
+      #35BCD7,
+      transparent 55%
+    ),
+    linear-gradient(110deg, #0098BA, #007B9F);
+}
+
+.zs-cta-wave {
+  position: absolute;
+  top: -34px;
+  left: -5%;
+  width: 110%;
+  height: 57px;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  border-top: 7px solid #F5B500;
+  background: #EAF7FC;
+  transform: rotate(-1deg);
+}
+
+.zs-cta-wave::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.zs-cta-inner {
+  position: relative;
+  z-index: 2;
+  width: min(1400px, 95%);
+  min-height: 150px;
+  margin: auto;
+  padding: 22px 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.zs-cta-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+
+.zs-headset-icon {
+  width: 80px;
+  height: 75px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  padding-right: 17px;
+  color: #FFFFFF;
+}
+
+.zs-headset-icon svg {
+  width: 58px;
+  height: 58px;
+  stroke-width: 1.8;
+}
+
+.zs-cta-text h2 {
+  margin: 0 0 7px;
+  color: #FFFFFF;
+  font-size: clamp(20px, 2.4vw, 27px);
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.zs-cta-text p {
+  max-width: 450px;
+  margin: 0;
+  color: #FFFFFF;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.zs-cta-button {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-shrink: 0;
+  padding: 0 22px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 35px;
+  color: #09285E;
+  background: linear-gradient(110deg, #FFD34D, #FFB900);
+  box-shadow: 0 5px 14px rgba(0, 56, 84, 0.18);
+  font-size: 14px;
+  font-weight: 850;
+  transition: 0.3s ease;
+}
+
+.zs-cta-button svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.zs-cta-button:hover {
+  transform: translateY(-3px);
+  background: #FFFFFF;
+  box-shadow: 0 9px 22px rgba(0, 56, 84, 0.23);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+
+  .zs-hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .zs-hero-copy {
+    width: 58%;
+    padding-left: 4%;
+  }
+
+  .zs-hero-media {
+    width: 49%;
+  }
+
+  .zs-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .zs-why-panel {
+    grid-template-columns: 22% 35% 43%;
+    padding: 12px 17px;
+  }
+
+  .zs-why-heading {
+    padding: 0 15px;
+  }
+
+  .zs-why-heading h2 {
+    font-size: 25px;
+  }
+
+  .zs-benefit-list {
+    padding-left: 16px;
+  }
+
+  .zs-cta-inner {
+    width: 94%;
+  }
+
+  .zs-cta-button {
+    padding: 0 16px;
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+  .zs-hero {
+    padding: 20px 0;
+  }
+
+  .zs-hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .zs-hero-copy {
+    width: 100%;
+    padding: 0 18px;
+  }
+
+  .zs-hero h1 {
+    font-size: 39px;
+    letter-spacing: -1.4px;
+  }
+
+  .zs-hero-description {
+    font-size: 13px;
+  }
+
+  .zs-feature-chips {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .zs-feature-chip {
+    min-width: 0;
+  }
+
+  .zs-hero-media {
+    position: relative;
+    right: auto;
+    width: 100%;
+    height: 245px;
+    clip-path: none;
+    border-radius: 50% 0 0 0 / 15% 0 0 0;
+  }
+
+  .zs-hero-curve {
+    display: none;
+  }
+
+  .zs-offerings {
+    padding: 20px 13px;
+  }
+
+  .zs-section-heading h2 {
+    font-size: 27px;
+  }
+
+  .zs-section-heading p {
+    font-size: 12px;
+  }
+
+  .zs-product-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .zs-product-card {
+    min-height: 170px;
+    grid-template-columns: 43% 57%;
+    padding: 8px;
+  }
+
+  .zs-product-image,
+  .zs-product-image img {
+    min-height: 150px;
+  }
+
+  .zs-product-info {
+    padding-left: 12px;
+  }
+
+  .zs-product-info h3 {
+    font-size: 14px;
+  }
+
+  .zs-product-info p {
+    font-size: 12px;
+  }
+
+  .zs-why-section {
+    padding: 12px;
+  }
+
+  .zs-why-panel {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 25px;
+  }
+
+  .zs-why-image {
+    height: 125px;
+  }
+
+  .zs-why-heading {
+    padding: 0;
+    text-align: center;
+  }
+
+  .zs-why-heading h2 {
+    font-size: 28px;
+  }
+
+  .zs-benefit-list {
+    padding: 13px 0 0;
+    border-top: 1px solid #D1E1E9;
+    border-left: 0;
+  }
+
+  .zs-benefit-item {
+    font-size: 12px;
+  }
+
+  .zs-bottom-cta {
+    min-height: 0;
+  }
+
+  .zs-cta-inner {
+    width: 100%;
+    padding: 35px 17px 20px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .zs-cta-left {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .zs-headset-icon {
+    width: 54px;
+    height: 58px;
+    padding-right: 10px;
+  }
+
+  .zs-headset-icon svg {
+    width: 42px;
+    height: 42px;
+  }
+
+  .zs-cta-text h2 {
+    font-size: 20px;
+  }
+
+  .zs-cta-text p {
+    font-size: 12px;
+  }
+
+  .zs-cta-button {
+    width: 100%;
+    min-height: 49px;
+    gap: 8px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zs-page *,
+  .zs-page *::before,
+  .zs-page *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -1,7 +1,8 @@
 
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import logo from '../../assets/logo.png'
+import { useState, useEffect, useRef } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import logo from "../../assets/logo.png";
+
 import {
   ChevronDown,
   Menu,
@@ -22,28 +23,85 @@ const navLinks = [
 ];
 
 const products = [
-  { label: "Zirconia Crowns & Bridges", path: "/products/zirconia" },
-  { label: "PFM Crowns & Bridges", path: "/products/pfm" },
-  { label: "Metal Crowns", path: "/products/metal-crowns" },
-  { label: "Temporary PMMA Crowns", path: "/products/pmma" },
-  { label: "Implant Crowns", path: "/products/implant-crowns" },
-  { label: "Complete Dentures", path: "/products/complete-dentures" },
-  { label: "Removable Partial Dentures", path: "/products/partial-dentures" },
-  { label: "Flexible Dentures", path: "/products/flexible-dentures" },
-  { label: "Digital Zirconia Milling", path: "/products/digital-milling" },
+  {
+    label: "Zirconia Crowns & Bridges",
+    path: "/products/zirconia-crowns-bridges",
+  },
+  {
+    label: "PFM Crowns & Bridges",
+    path: "/products/pfm-crowns-bridges",
+  },
+  {
+    label: "Metal Crowns",
+    path: "/products/metal-crowns",
+  },
+  {
+    label: "Temporary PMMA Crowns",
+    path: "/products/temporary-pmma-crowns",
+  },
+  {
+    label: "Implant Crowns",
+    path: "/products/implant-crowns",
+  },
+  {
+    label: "Complete Dentures",
+    path: "/products/complete-dentures",
+  },
+  {
+    label: "Removable Partial Dentures",
+    path: "/products/removable-partial-dentures",
+  },
+  {
+    label: "Flexible Dentures",
+    path: "/products/flexible-dentures",
+  },
+  {
+    label: "Digital Zirconia Milling",
+    path: "/products/digital-zirconia-milling",
+  },
 ];
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
 
+  const dropdownRef = useRef(null);
+  const location = useLocation();
+
+  const isProductPage = location.pathname.startsWith("/products");
+
   const closeMenu = () => {
     setMenuOpen(false);
     setProductsOpen(false);
   };
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target)
+      ) {
+        setProductsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
+  // Close menus whenever route changes
+  useEffect(() => {
+    setMenuOpen(false);
+    setProductsOpen(false);
+  }, [location.pathname]);
+
   return (
     <header className="zc-header">
+
       <div className="zc-navbar">
 
         {/* LOGO */}
@@ -51,7 +109,7 @@ function Navbar() {
         <Link to="/" className="zc-brand" onClick={closeMenu}>
           <img
             src={logo}
-            alt="Ziadent Care"
+            alt="ZiaDent Care"
             className="zc-brand-logo"
           />
         </Link>
@@ -73,40 +131,71 @@ function Navbar() {
             </NavLink>
           ))}
 
-          {/* PRODUCTS DROPDOWN */}
+          {/* PRODUCTS & SERVICES */}
 
-          <div className="zc-nav-dropdown">
+          <div className="zc-nav-dropdown" ref={dropdownRef}>
 
-            <button
-              className="zc-nav-link zc-dropdown-trigger"
-              type="button"
-              aria-expanded={productsOpen}
-              onClick={() => setProductsOpen(!productsOpen)}
+            <div className="zc-dropdown-trigger">
+
+              <Link
+                to="/products"
+                className={`zc-nav-link ${
+                  isProductPage ? "active" : ""
+                }`}
+                onClick={closeMenu}
+              >
+                Products & Services
+              </Link>
+
+              <button
+                type="button"
+                className="zc-dropdown-arrow"
+                aria-label="Open products dropdown"
+                aria-expanded={productsOpen}
+                onClick={() => setProductsOpen((prev) => !prev)}
+              >
+                <ChevronDown
+                  size={16}
+                  className={productsOpen ? "zc-chevron-open" : ""}
+                />
+              </button>
+
+            </div>
+
+            <div
+              className={`zc-dropdown-menu ${
+                productsOpen ? "zc-dropdown-visible" : ""
+              }`}
             >
-              Products & Services
-              <ChevronDown
-                size={17}
-                className={productsOpen ? "zc-chevron-open" : ""}
-              />
-            </button>
 
-            <div className="zc-dropdown-menu">
               <div className="zc-dropdown-heading">
                 <span>Our Products & Services</span>
                 <p>Explore our dental solutions</p>
               </div>
 
+              <Link
+                to="/products"
+                className="zc-dropdown-all"
+                onClick={closeMenu}
+              >
+                Explore All Products & Services
+                <ArrowUpRight size={16} />
+              </Link>
+
               {products.map((item) => (
-                <Link
+                <NavLink
                   key={item.path}
                   to={item.path}
                   onClick={closeMenu}
-                  className="zc-dropdown-item"
+                  className={({ isActive }) =>
+                    `zc-dropdown-item ${isActive ? "active" : ""}`
+                  }
                 >
                   <span>{item.label}</span>
                   <ArrowUpRight size={15} />
-                </Link>
+                </NavLink>
               ))}
+
             </div>
 
           </div>
@@ -145,7 +234,9 @@ function Navbar() {
             className="zc-navbar-cta"
           >
             <CalendarDays size={18} />
+
             <span>Schedule a Call with Our Team</span>
+
             <ArrowUpRight size={17} />
           </Link>
 
@@ -156,7 +247,10 @@ function Navbar() {
         <button
           type="button"
           className="zc-mobile-toggle"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => {
+            setMenuOpen((prev) => !prev);
+            setProductsOpen(false);
+          }}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
         >
@@ -183,15 +277,29 @@ function Navbar() {
           </NavLink>
         ))}
 
+        {/* MOBILE PRODUCTS */}
+
         <div className="zc-mobile-products">
+
+          <Link
+            to="/products"
+            className={`zc-mobile-link zc-mobile-products-main ${
+              isProductPage ? "active" : ""
+            }`}
+            onClick={closeMenu}
+          >
+            <span>Products & Services</span>
+            <ArrowUpRight size={17} />
+          </Link>
 
           <button
             type="button"
             className="zc-mobile-link zc-mobile-product-toggle"
-            onClick={() => setProductsOpen(!productsOpen)}
+            onClick={() => setProductsOpen((prev) => !prev)}
             aria-expanded={productsOpen}
           >
-            Products & Services
+            <span>Browse Products</span>
+
             <ChevronDown
               size={18}
               className={productsOpen ? "zc-chevron-open" : ""}
@@ -200,15 +308,20 @@ function Navbar() {
 
           {productsOpen && (
             <div className="zc-mobile-product-list">
+
               {products.map((item) => (
-                <Link
+                <NavLink
                   key={item.path}
                   to={item.path}
                   onClick={closeMenu}
+                  className={({ isActive }) =>
+                    isActive ? "active" : ""
+                  }
                 >
                   {item.label}
-                </Link>
+                </NavLink>
               ))}
+
             </div>
           )}
 
@@ -233,11 +346,13 @@ function Navbar() {
           onClick={closeMenu}
         >
           <CalendarDays size={19} />
-          Schedule a Call with Our Team
+          <span>Schedule a Call with Our Team</span>
           <ArrowUpRight size={18} />
         </Link>
 
       </div>
+
+      {/* MOBILE BACKDROP */}
 
       {menuOpen && (
         <button
