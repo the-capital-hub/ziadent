@@ -8,12 +8,13 @@ import {
   Sparkles,
   Layers3,
   Activity,
-  Tooth,
+  
 } from "lucide-react";
 
 import cta from "../../assets/home/cta.png";
 
 import "./FinalCTA.css";
+import { FaTooth } from "react-icons/fa";
 
 function FinalCTA() {
   return (
@@ -78,7 +79,7 @@ function FinalCTA() {
           <div className="zc-cta-orbit">
 
             <div className="zc-cta-orbit-icon zc-cta-tooth">
-              <Tooth size={29} />
+              <FaTooth size={29} />
             </div>
 
             <div className="zc-cta-orbit-icon zc-cta-bridge">
