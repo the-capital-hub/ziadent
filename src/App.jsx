@@ -5,6 +5,7 @@ import AIButton from './components/AIButton/AIButton'
 import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton'
 import { Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home/Home'
+import AIFloatingButton from './components/AIButton/AIButton'
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
 
 
     <Footer/>
-    <AIButton/>
+    <AIFloatingButton/>
     <WhatsAppButton/>
     </>
   )

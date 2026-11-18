@@ -1,658 +1,618 @@
 
 /* =========================================
-   ZIADENT NAVBAR
+   ZIADENT CARE PREMIUM NAVBAR
+   Sky Blue + Aqua + Golden Yellow
 ========================================= */
 
-.zd-header {
-  width: 100%;
+.zc-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 12px 0;
-  background: rgba(255, 255, 255, 0.94);
+
+  width: 100%;
+  padding: 16px 3%;
+
+  background: rgba(245, 250, 251, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
 
-.zd-navbar {
-  width: min(1440px, calc(100% - 60px));
-  min-height: 88px;
-  margin: auto;
-  padding: 12px 24px;
+/* MAIN NAVBAR */
+
+.zc-navbar {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  min-height: 82px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 22px;
+
+  padding: 10px 22px;
 
   background: #FFFFFF;
-  border: 1px solid #E5EDF3;
+  border: 1px solid rgba(67, 166, 200, 0.12);
   border-radius: 24px;
 
-  box-shadow: 0 8px 30px rgba(11, 95, 138, 0.08);
-
-  transition: box-shadow 0.3s ease;
+  box-shadow:
+    0 8px 30px rgba(35, 103, 130, 0.08),
+    0 2px 8px rgba(35, 103, 130, 0.03);
 }
 
-.zd-navbar:hover {
-  box-shadow: 0 12px 35px rgba(11, 95, 138, 0.12);
-}
+/* =========================================
+   BRAND LOGO
+========================================= */
 
-/* BRAND */
-
-.zd-brand {
-  display: inline-flex;
+.zc-brand {
+  display: flex;
   align-items: center;
   flex-shrink: 0;
-  gap: 10px;
+
+  width: 205px;
+  min-width: 150px;
 }
 
-.zd-logo-mark {
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+.zc-brand-logo {
+  display: block;
 
-.zd-logo-mark svg {
   width: 100%;
-  height: 100%;
+  max-width: 205px;
+  height: 62px;
+
+  object-fit: contain;
+  object-position: left center;
 }
 
-.zd-brand-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
+/* =========================================
+   DESKTOP NAVIGATION
+========================================= */
 
-.zd-brand-text span {
-  color: #0B5F8A;
-  font-family: var(--font-heading);
-  font-size: 27px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  line-height: 1.1;
-}
-
-.zd-brand-text small {
-  color: #163247;
-  font-family: var(--font-heading);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 4px;
-}
-
-/* DESKTOP NAVIGATION */
-
-.zd-navigation {
+.zc-desktop-nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(14px, 2vw, 32px);
+  gap: 5px;
+
+  flex: 1;
 }
 
-.zd-nav-link {
+.zc-nav-link {
   position: relative;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 7px;
 
-  padding: 12px 2px;
+  min-height: 48px;
+  padding: 0 13px;
 
+  color: #173247;
   background: transparent;
-  color: #163247;
 
-  font-family: var(--font-heading);
-  font-size: 14px;
-  font-weight: 700;
+  border: none;
+  border-radius: 50px;
 
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 650;
   white-space: nowrap;
-  transition: color 0.3s ease;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease;
 }
 
-.zd-nav-link:hover,
-.zd-nav-link.active {
-  color: #0B5F8A;
+.zc-nav-link:hover,
+.zc-nav-link.active {
+  color: #267F9F;
+  background: #EAF7FA;
 }
 
-.zd-nav-link::after {
+.zc-nav-link.active::after {
   content: "";
+
   position: absolute;
   bottom: 3px;
-  left: 0;
-
-  width: 0;
+  left: 25%;
+  width: 50%;
   height: 3px;
 
-  background: #F47721;
+  background: #F9B632;
   border-radius: 10px;
-
-  transition: width 0.35s ease;
 }
 
-.zd-nav-link:hover::after,
-.zd-nav-link.active::after {
-  width: 100%;
-}
-
-.zd-dropdown-trigger svg {
+.zc-dropdown-trigger svg {
   transition: transform 0.3s ease;
 }
 
-.zd-products-menu.open .zd-dropdown-trigger svg {
+.zc-chevron-open {
   transform: rotate(180deg);
 }
 
-/* PRODUCTS DROPDOWN */
+/* =========================================
+   PRODUCTS DROPDOWN
+========================================= */
 
-.zd-products-menu {
+.zc-nav-dropdown {
   position: relative;
-  height: 100%;
 }
 
-.zd-dropdown {
+.zc-dropdown-menu {
   position: absolute;
-  top: calc(100% + 17px);
-  left: 50%;
+  top: calc(100% + 16px);
+  left: 0;
 
-  width: 480px;
-  padding: 24px;
+  width: 310px;
+  max-height: 470px;
+  overflow-y: auto;
+
+  padding: 12px;
 
   background: #FFFFFF;
-  border: 1px solid #E5EDF3;
-  border-radius: 20px;
+  border: 1px solid #DCEAEC;
+  border-radius: 17px;
 
-  box-shadow: 0 20px 50px rgba(11, 95, 138, 0.15);
+  box-shadow: 0 15px 40px rgba(23, 50, 71, 0.14);
 
   opacity: 0;
   visibility: hidden;
-  pointer-events: none;
+  transform: translateY(10px);
 
-  transform: translate(-50%, 12px);
-
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease,
-    transform 0.3s ease;
+  transition: all 0.25s ease;
 }
 
-.zd-products-menu.open .zd-dropdown {
+.zc-nav-dropdown:hover .zc-dropdown-menu,
+.zc-nav-dropdown:focus-within .zc-dropdown-menu,
+.zc-nav-dropdown:has(.zc-chevron-open) .zc-dropdown-menu {
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
-  transform: translate(-50%, 0);
+  transform: translateY(0);
 }
 
-.zd-dropdown-heading {
-  padding-bottom: 16px;
-  border-bottom: 1px solid #E5EDF3;
-  margin-bottom: 16px;
+.zc-dropdown-heading {
+  padding: 9px 11px 13px;
+  margin-bottom: 5px;
+
+  border-bottom: 1px solid #E6F0F2;
 }
 
-.zd-dropdown-heading span {
+.zc-dropdown-heading span {
   display: block;
-  color: #F47721;
-  font-size: 12px;
+
+  color: #173247;
+  font-size: 14px;
   font-weight: 800;
-  letter-spacing: 1.5px;
-  margin-bottom: 6px;
+
+  margin-bottom: 4px;
 }
 
-.zd-dropdown-heading p {
-  color: #536A7B;
-  font-size: 13px;
-}
-
-.zd-dropdown-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.zd-dropdown-item {
-  min-height: 58px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  padding: 10px;
-
-  color: #163247;
+.zc-dropdown-heading p {
+  color: #8295A3;
   font-size: 12px;
-  font-weight: 700;
-
-  border-radius: 10px;
-  transition: all 0.3s ease;
 }
 
-.zd-dropdown-item:hover {
-  background: #F2F7FA;
-  color: #0B5F8A;
-  transform: translateX(3px);
-}
-
-.zd-dropdown-icon {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-
-  display: grid;
-  place-items: center;
-
-  color: #F47721;
-  background: #FFF1E7;
-  border-radius: 9px;
-}
-
-/* RIGHT ACTIONS */
-
-.zd-nav-actions {
+.zc-dropdown-item {
   display: flex;
   align-items: center;
-  gap: 20px;
-  flex-shrink: 0;
-}
-
-.zd-phone {
-  display: flex;
-  align-items: center;
+  justify-content: space-between;
   gap: 10px;
+
+  padding: 10px 11px;
+
+  color: #536A7B;
+  border-radius: 9px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: all 0.25s ease;
 }
 
-.zd-phone-icon {
-  width: 44px;
-  height: 44px;
+.zc-dropdown-item svg {
+  color: #43A6C8;
+  flex-shrink: 0;
+}
+
+.zc-dropdown-item:hover {
+  color: #267F9F;
+  background: #EAF7FA;
+  padding-left: 15px;
+}
+
+/* =========================================
+   RIGHT ACTIONS
+========================================= */
+
+.zc-navbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+
+  flex-shrink: 0;
+
+  padding-left: 18px;
+  border-left: 1px solid #DCEAEC;
+}
+
+/* REQUEST A CALL */
+
+.zc-call-info {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #173247;
+
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+
+  transition: color 0.3s ease;
+}
+
+.zc-call-info:hover {
+  color: #267F9F;
+}
+
+.zc-call-icon {
+  width: 43px;
+  height: 43px;
+
   display: grid;
   place-items: center;
 
-  color: #0B5F8A;
-  background: #EAF4F9;
+  color: #267F9F;
+  background: #EAF7FA;
   border-radius: 50%;
 
   transition: all 0.3s ease;
 }
 
-.zd-phone:hover .zd-phone-icon {
+.zc-call-info:hover .zc-call-icon {
   color: #FFFFFF;
-  background: #0B5F8A;
-  transform: rotate(-8deg);
+  background: #43A6C8;
 }
 
-.zd-phone-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
+/* GOLDEN CTA */
 
-.zd-phone-text small {
-  color: #8295A3;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.zd-phone-text strong {
-  color: #163247;
-  font-size: 13px;
-  font-weight: 800;
-}
-
-/* SCHEDULE BUTTON */
-
-.zd-schedule-btn {
+.zc-navbar-cta {
   min-height: 50px;
-  display: inline-flex;
+
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 9px;
 
-  padding: 12px 20px;
+  padding: 0 18px;
 
-  color: #FFFFFF;
-  background: #F47721;
+  color: #173247;
+  background: #F9B632;
 
-  border-radius: 12px;
+  border: 1px solid #F9B632;
+  border-radius: 50px;
 
-  font-family: var(--font-heading);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
   white-space: nowrap;
 
-  box-shadow: 0 6px 18px rgba(244, 119, 33, 0.18);
-
-  transition:
-    background 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.zd-schedule-btn:hover {
-  color: #FFFFFF;
-  background: #C6530B;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(244, 119, 33, 0.25);
-}
-
-/* MOBILE TOGGLE */
-
-.zd-mobile-toggle {
-  display: none;
-  width: 46px;
-  height: 46px;
-
-  align-items: center;
-  justify-content: center;
-
-  color: #0B5F8A;
-  background: #EAF4F9;
-  border-radius: 12px;
-}
-
-/* MOBILE OVERLAY */
-
-.zd-mobile-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1001;
-
-  background: rgba(10, 35, 55, 0.45);
-  backdrop-filter: blur(3px);
-
-  opacity: 0;
-  visibility: hidden;
+  box-shadow: 0 5px 15px rgba(249, 182, 50, 0.15);
 
   transition: all 0.3s ease;
 }
 
-.zd-mobile-overlay.show {
-  opacity: 1;
-  visibility: visible;
-}
+.zc-navbar-cta:hover {
+  color: #173247;
+  background: #E5A21B;
+  border-color: #E5A21B;
 
-/* MOBILE PANEL */
-
-.zd-mobile-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-
-  width: min(390px, 88%);
-  height: 100dvh;
-
-  z-index: 1002;
-
-  display: flex;
-  flex-direction: column;
-
-  padding: 20px;
-
-  background: #FFFFFF;
-  box-shadow: -15px 0 50px rgba(11, 95, 138, 0.12);
-
-  transform: translateX(105%);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-
-  overflow-y: auto;
-}
-
-.zd-mobile-panel.show {
-  transform: translateX(0);
-}
-
-.zd-mobile-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding-bottom: 20px;
-  border-bottom: 1px solid #E5EDF3;
-}
-
-.zd-mobile-header .zd-logo-mark {
-  width: 42px;
-  height: 42px;
-}
-
-.zd-mobile-header .zd-brand-text span {
-  font-size: 21px;
-}
-
-.zd-mobile-header .zd-brand-text small {
-  font-size: 12px;
-  letter-spacing: 3px;
-}
-
-.zd-mobile-close {
-  width: 40px;
-  height: 40px;
-
-  display: grid;
-  place-items: center;
-
-  color: #163247;
-  background: #F2F7FA;
-  border-radius: 10px;
-}
-
-.zd-mobile-navigation {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-
-  padding-top: 20px;
-}
-
-.zd-mobile-link {
-  width: 100%;
-  min-height: 48px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 12px;
-
-  color: #163247;
-  background: transparent;
-
-  border-radius: 10px;
-
-  font-family: var(--font-heading);
-  font-size: 14px;
-  font-weight: 700;
-
-  transition: all 0.3s ease;
-}
-
-.zd-mobile-link:hover,
-.zd-mobile-link.active {
-  color: #0B5F8A;
-  background: #EAF4F9;
-}
-
-.zd-mobile-product-trigger {
-  text-align: left;
-}
-
-.zd-mobile-product-trigger svg {
-  transition: transform 0.3s ease;
-}
-
-.zd-mobile-product-trigger svg.rotated {
-  transform: rotate(180deg);
-}
-
-.zd-mobile-submenu {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-
-  padding: 8px 10px 8px 20px;
-
-  animation: zdSubmenu 0.3s ease both;
-}
-
-.zd-mobile-submenu a {
-  padding: 12px 10px;
-
-  color: #536A7B;
-  font-size: 12px;
-  font-weight: 600;
-
-  border-left: 2px solid #DCE7EE;
-  transition: all 0.3s ease;
-}
-
-.zd-mobile-submenu a:hover {
-  color: #F47721;
-  border-color: #F47721;
-  background: #FFF7F1;
-}
-
-@keyframes zdSubmenu {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* MOBILE BOTTOM */
-
-.zd-mobile-bottom {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-
-  margin-top: auto;
-  padding-top: 20px;
-}
-
-.zd-mobile-contact {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  padding: 12px;
-
-  color: #0B5F8A;
-  background: #F2F7FA;
-  border-radius: 12px;
-
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.mobile-cta {
-  width: 100%;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(249, 182, 50, 0.25);
 }
 
 /* =========================================
-   RESPONSIVE DESIGN
+   MOBILE CONTROLS
 ========================================= */
 
-@media (max-width: 1250px) {
-  .zd-navbar {
-    width: calc(100% - 32px);
-    gap: 14px;
-    padding: 12px 18px;
+.zc-mobile-toggle {
+  display: none;
+
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+
+  place-items: center;
+
+  color: #267F9F;
+  background: #EAF7FA;
+
+  border: 1px solid #DCEAEC;
+  border-radius: 12px;
+
+  cursor: pointer;
+}
+
+.zc-mobile-menu,
+.zc-mobile-backdrop {
+  display: none;
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1350px) {
+
+  .zc-header {
+    padding-left: 2%;
+    padding-right: 2%;
   }
 
-  .zd-navigation {
-    gap: 14px;
-  }
-
-  .zd-brand-text span {
-    font-size: 23px;
-  }
-
-  .zd-nav-actions {
+  .zc-navbar {
     gap: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
-  .zd-phone-icon {
-    width: 40px;
-    height: 40px;
+  .zc-brand {
+    width: 165px;
   }
 
-  .zd-schedule-btn {
-    padding: 12px 14px;
+  .zc-brand-logo {
+    height: 55px;
+  }
+
+  .zc-nav-link {
+    padding-left: 9px;
+    padding-right: 9px;
+    font-size: 12px;
+  }
+
+  .zc-navbar-actions {
+    gap: 10px;
+    padding-left: 12px;
+  }
+
+  .zc-call-info {
+    font-size: 12px;
+  }
+
+  .zc-call-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .zc-navbar-cta {
+    padding-left: 13px;
+    padding-right: 13px;
+    font-size: 12px;
   }
 }
+
+/* =========================================
+   TABLET AND MOBILE NAVIGATION
+========================================= */
 
 @media (max-width: 1050px) {
-  .zd-navigation {
+
+  .zc-header {
+    padding: 12px 20px;
+  }
+
+  .zc-navbar {
+    min-height: 70px;
+    border-radius: 18px;
+  }
+
+  .zc-brand {
+    width: 180px;
+  }
+
+  .zc-brand-logo {
+    height: 55px;
+  }
+
+  .zc-desktop-nav,
+  .zc-navbar-actions {
     display: none;
   }
 
-  .zd-phone {
-    display: none;
+  .zc-mobile-toggle {
+    display: grid;
   }
 
-  .zd-mobile-toggle {
+  .zc-mobile-menu {
+    position: absolute;
+    z-index: 3;
+
+    top: calc(100% + 2px);
+    left: 20px;
+    right: 20px;
+
     display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    max-height: calc(100vh - 115px);
+    overflow-y: auto;
+
+    padding: 14px;
+
+    background: #FFFFFF;
+    border: 1px solid #DCEAEC;
+    border-radius: 18px;
+
+    box-shadow: 0 15px 40px rgba(23, 50, 71, 0.15);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+
+    transition: all 0.3s ease;
   }
 
-  .zd-navbar {
-    min-height: 76px;
+  .zc-mobile-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .zc-mobile-link {
+    width: 100%;
+    min-height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px 13px;
+
+    color: #173247;
+    background: transparent;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 650;
+    text-align: left;
+
+    transition: all 0.25s ease;
+  }
+
+  .zc-mobile-link:hover,
+  .zc-mobile-link.active {
+    color: #267F9F;
+    background: #EAF7FA;
+  }
+
+  .zc-mobile-products {
+    width: 100%;
+  }
+
+  .zc-mobile-product-toggle {
+    cursor: pointer;
+  }
+
+  .zc-mobile-product-toggle svg {
+    transition: transform 0.3s ease;
+  }
+
+  .zc-mobile-product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    padding: 5px 0 8px 15px;
+  }
+
+  .zc-mobile-product-list a {
+    min-height: 40px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 8px 12px;
+
+    color: #536A7B;
+    background: #F5FAFB;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .zc-mobile-product-list a:hover {
+    color: #267F9F;
+    background: #EAF7FA;
+  }
+
+  .zc-mobile-cta {
+    min-height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    margin-top: 8px;
+    padding: 12px;
+
+    color: #173247;
+    background: #F9B632;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .zc-mobile-backdrop {
+    position: fixed;
+    z-index: 1;
+
+    inset: 0;
+
+    display: block;
+
+    background: rgba(23, 50, 71, 0.15);
+    border: none;
   }
 }
 
-@media (max-width: 600px) {
-  .zd-header {
-    padding: 8px 0;
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .zc-header {
+    padding: 10px 12px;
   }
 
-  .zd-navbar {
-    width: calc(100% - 24px);
-    min-height: 68px;
-
-    padding: 10px 14px;
-    border-radius: 17px;
+  .zc-navbar {
+    min-height: 64px;
+    padding: 7px 12px;
+    border-radius: 15px;
   }
 
-  .zd-logo-mark {
-    width: 43px;
-    height: 43px;
+  .zc-brand {
+    width: 155px;
+    min-width: 0;
   }
 
-  .zd-brand {
-    gap: 7px;
+  .zc-brand-logo {
+    height: 48px;
   }
 
-  .zd-brand-text span {
-    font-size: 21px;
-  }
-
-  .zd-brand-text small {
-    font-size: 12px;
-    letter-spacing: 2.5px;
-  }
-
-  .zd-nav-actions .zd-schedule-btn {
-    display: none;
-  }
-
-  .zd-mobile-toggle {
+  .zc-mobile-toggle {
     width: 42px;
     height: 42px;
   }
+
+  .zc-mobile-menu {
+    left: 12px;
+    right: 12px;
+  }
 }
 
 /* =========================================
-   ACCESSIBILITY
+   REDUCED MOTION
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .zd-header *,
-  .zd-mobile-panel *,
-  .zd-mobile-overlay {
-    transition: none !important;
+
+  .zc-header *,
+  .zc-header *::before,
+  .zc-header *::after {
     animation: none !important;
+    transition: none !important;
   }
 }

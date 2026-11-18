@@ -1,357 +1,255 @@
 
-import { useState, useEffect } from "react";
-import { NavLink, Link, useLocation } from "react-router-dom";
-
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import logo from '../../assets/logo.png'
 import {
+  ChevronDown,
   Menu,
   X,
-  ChevronDown,
-  Phone,
-  CalendarDays,
   ArrowUpRight,
+  CalendarDays,
+  Phone,
 } from "lucide-react";
 
 import "./Navbar.css";
 
-
-const productLinks = [
-  {
-    title: "Zirconia Crowns & Bridges",
-    path: "/products/zirconia",
-  },
-  {
-    title: "PFM Crowns & Bridges",
-    path: "/products/pfm",
-  },
-  {
-    title: "Metal Crowns",
-    path: "/products/metal-crowns",
-  },
-  {
-    title: "Temporary PMMA Crowns",
-    path: "/products/pmma",
-  },
-  {
-    title: "Implant Crowns",
-    path: "/products/implant-crowns",
-  },
-  {
-    title: "Complete Dentures",
-    path: "/products/complete-dentures",
-  },
-  {
-    title: "Removable Partial Dentures (RPD)",
-    path: "/products/partial-dentures",
-  },
-  {
-    title: "Flexible Dentures",
-    path: "/products/flexible-dentures",
-  },
-  {
-    title: "Digital Zirconia Milling",
-    path: "/products/digital-milling",
-  },
-];
-
 const navLinks = [
-  { title: "Home", path: "/" },
-  { title: "Digital Dentistry", path: "/digital-dentistry" },
-  { title: "About Us", path: "/about" },
-  { title: "Why ZiaDent", path: "/why-ziadent" },
-  { title: "Contact Us", path: "/contact" },
+  { label: "Home", path: "/" },
+  { label: "About Us", path: "/about" },
+  { label: "Digital Dentistry", path: "/digital-dentistry" },
+  { label: "Why ZiaDent", path: "/why-ziadent" },
+  { label: "Contact Us", path: "/contact" },
 ];
 
-const Navbar = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+const products = [
+  { label: "Zirconia Crowns & Bridges", path: "/products/zirconia" },
+  { label: "PFM Crowns & Bridges", path: "/products/pfm" },
+  { label: "Metal Crowns", path: "/products/metal-crowns" },
+  { label: "Temporary PMMA Crowns", path: "/products/pmma" },
+  { label: "Implant Crowns", path: "/products/implant-crowns" },
+  { label: "Complete Dentures", path: "/products/complete-dentures" },
+  { label: "Removable Partial Dentures", path: "/products/partial-dentures" },
+  { label: "Flexible Dentures", path: "/products/flexible-dentures" },
+  { label: "Digital Zirconia Milling", path: "/products/digital-milling" },
+];
+
+function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
-  const location = useLocation();
 
-  useEffect(() => {
-    setMobileOpen(false);
+  const closeMenu = () => {
+    setMenuOpen(false);
     setProductsOpen(false);
-  }, [location.pathname]);
-
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [mobileOpen]);
+  };
 
   return (
-    <>
-      <header className="zd-header">
-        <div className="zd-navbar">
+    <header className="zc-header">
+      <div className="zc-navbar">
 
-          {/* BRAND LOGO */}
+        {/* LOGO */}
 
-          <Link to="/" className="zd-brand">
-            <div className="zd-logo-mark">
-              <svg
-                viewBox="0 0 64 64"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32 7C25 7 20 12 15 10C8 7 5 14 7 23L14 50C16 58 22 59 26 50L32 37L38 50C42 59 48 58 50 50L57 23C59 14 56 7 49 10C44 12 39 7 32 7Z"
-                  stroke="#0B5F8A"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+        <Link to="/" className="zc-brand" onClick={closeMenu}>
+          <img
+            src={logo}
+            alt="Ziadent Care"
+            className="zc-brand-logo"
+          />
+        </Link>
 
-                <path
-                  d="M17 30C25 20 38 17 48 12C43 22 34 29 24 35"
-                  stroke="#F47721"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </div>
+        {/* DESKTOP NAVIGATION */}
 
-            <div className="zd-brand-text">
-              <span>ZIADENT</span>
-              <small>DENTAL LAB</small>
-            </div>
-          </Link>
+        <nav className="zc-desktop-nav">
 
-          {/* DESKTOP NAVIGATION */}
-
-          <nav className="zd-navigation">
-
+          {navLinks.slice(0, 2).map((item) => (
             <NavLink
-              to="/"
-              end
+              key={item.path}
+              to={item.path}
+              end={item.path === "/"}
               className={({ isActive }) =>
-                `zd-nav-link ${isActive ? "active" : ""}`
+                `zc-nav-link ${isActive ? "active" : ""}`
               }
             >
-              Home
+              {item.label}
             </NavLink>
+          ))}
 
-            {/* PRODUCTS DROPDOWN */}
+          {/* PRODUCTS DROPDOWN */}
 
-            <div
-              className={`zd-products-menu ${
-                productsOpen ? "open" : ""
-              }`}
-              onMouseEnter={() => setProductsOpen(true)}
-              onMouseLeave={() => setProductsOpen(false)}
-            >
-              <button
-                className={`zd-nav-link zd-dropdown-trigger ${
-                  location.pathname.startsWith("/products")
-                    ? "active"
-                    : ""
-                }`}
-                onClick={() => setProductsOpen(!productsOpen)}
-                aria-expanded={productsOpen}
-                aria-label="Open products menu"
-              >
-                Products & Services
-                <ChevronDown size={16} />
-              </button>
+          <div className="zc-nav-dropdown">
 
-              <div className="zd-dropdown">
-                <div className="zd-dropdown-heading">
-                  <span>OUR PRODUCTS</span>
-                  <p>Precision crafted dental solutions</p>
-                </div>
-
-                <div className="zd-dropdown-grid">
-                  {productLinks.map((product) => (
-                    <Link
-                      key={product.path}
-                      to={product.path}
-                      className="zd-dropdown-item"
-                      onClick={() => setProductsOpen(false)}
-                    >
-                      <span className="zd-dropdown-icon">
-                        <ArrowUpRight size={17} />
-                      </span>
-
-                      <span>{product.title}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {navLinks.slice(1).map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                className={({ isActive }) =>
-                  `zd-nav-link ${isActive ? "active" : ""}`
-                }
-              >
-                {link.title}
-              </NavLink>
-            ))}
-
-          </nav>
-
-          {/* RIGHT ACTIONS */}
-
-          <div className="zd-nav-actions">
-
-            <a
-              href="tel:"
-              className="zd-phone"
-              aria-label="Call ZiaDent"
-            >
-              <span className="zd-phone-icon">
-                <Phone size={20} />
-              </span>
-
-              <span className="zd-phone-text">
-                <small>Call Our Team</small>
-                <strong>Get In Touch</strong>
-              </span>
-            </a>
-
-            <Link
-              to="/schedule-call"
-              className="zd-schedule-btn"
-            >
-              <CalendarDays size={19} />
-              <span>Schedule a Call</span>
-              <ArrowUpRight size={17} />
-            </Link>
-
-          </div>
-
-          {/* MOBILE TOGGLE */}
-
-          <button
-            className="zd-mobile-toggle"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X size={25} /> : <Menu size={25} />}
-          </button>
-
-        </div>
-      </header>
-
-      {/* MOBILE NAVIGATION */}
-
-      <div
-        className={`zd-mobile-overlay ${
-          mobileOpen ? "show" : ""
-        }`}
-        onClick={() => setMobileOpen(false)}
-      />
-
-      <aside
-        className={`zd-mobile-panel ${
-          mobileOpen ? "show" : ""
-        }`}
-        aria-hidden={!mobileOpen}
-      >
-        <div className="zd-mobile-header">
-
-          <Link to="/" className="zd-brand">
-            <div className="zd-logo-mark">
-              <svg viewBox="0 0 64 64" fill="none">
-                <path
-                  d="M32 7C25 7 20 12 15 10C8 7 5 14 7 23L14 50C16 58 22 59 26 50L32 37L38 50C42 59 48 58 50 50L57 23C59 14 56 7 49 10C44 12 39 7 32 7Z"
-                  stroke="#0B5F8A"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M17 30C25 20 38 17 48 12"
-                  stroke="#F47721"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </div>
-
-            <div className="zd-brand-text">
-              <span>ZIADENT</span>
-              <small>DENTAL LAB</small>
-            </div>
-          </Link>
-
-          <button
-            className="zd-mobile-close"
-            onClick={() => setMobileOpen(false)}
-            aria-label="Close navigation"
-          >
-            <X size={23} />
-          </button>
-
-        </div>
-
-        <nav className="zd-mobile-navigation">
-
-          <NavLink to="/" end className="zd-mobile-link">
-            Home
-          </NavLink>
-
-          <div className="zd-mobile-products">
             <button
-              className="zd-mobile-link zd-mobile-product-trigger"
+              className="zc-nav-link zc-dropdown-trigger"
+              type="button"
+              aria-expanded={productsOpen}
               onClick={() => setProductsOpen(!productsOpen)}
             >
               Products & Services
               <ChevronDown
-                size={18}
-                className={productsOpen ? "rotated" : ""}
+                size={17}
+                className={productsOpen ? "zc-chevron-open" : ""}
               />
             </button>
 
-            {productsOpen && (
-              <div className="zd-mobile-submenu">
-                {productLinks.map((product) => (
-                  <Link
-                    key={product.path}
-                    to={product.path}
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {product.title}
-                  </Link>
-                ))}
+            <div className="zc-dropdown-menu">
+              <div className="zc-dropdown-heading">
+                <span>Our Products & Services</span>
+                <p>Explore our dental solutions</p>
               </div>
-            )}
+
+              {products.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={closeMenu}
+                  className="zc-dropdown-item"
+                >
+                  <span>{item.label}</span>
+                  <ArrowUpRight size={15} />
+                </Link>
+              ))}
+            </div>
+
           </div>
 
-          {navLinks.slice(1).map((link) => (
+          {navLinks.slice(2).map((item) => (
             <NavLink
-              key={link.path}
-              to={link.path}
-              className="zd-mobile-link"
+              key={item.path}
+              to={item.path}
+              className={({ isActive }) =>
+                `zc-nav-link ${isActive ? "active" : ""}`
+              }
             >
-              {link.title}
+              {item.label}
             </NavLink>
           ))}
 
         </nav>
 
-        <div className="zd-mobile-bottom">
+        {/* RIGHT ACTIONS */}
 
-          <div className="zd-mobile-contact">
-            <Phone size={19} />
-            <span>Connect with our team</span>
-          </div>
+        <div className="zc-navbar-actions">
 
           <Link
             to="/schedule-call"
-            className="zd-schedule-btn mobile-cta"
+            className="zc-call-info"
           >
-            <CalendarDays size={19} />
-            Schedule a Call
+            <span className="zc-call-icon">
+              <Phone size={20} />
+            </span>
+
+            <span>Request a Call</span>
+          </Link>
+
+          <Link
+            to="/schedule-call"
+            className="zc-navbar-cta"
+          >
+            <CalendarDays size={18} />
+            <span>Schedule a Call with Our Team</span>
             <ArrowUpRight size={17} />
           </Link>
 
         </div>
-      </aside>
-    </>
+
+        {/* MOBILE MENU BUTTON */}
+
+        <button
+          type="button"
+          className="zc-mobile-toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? <X size={25} /> : <Menu size={25} />}
+        </button>
+
+      </div>
+
+      {/* MOBILE MENU */}
+
+      <div className={`zc-mobile-menu ${menuOpen ? "show" : ""}`}>
+
+        {navLinks.slice(0, 2).map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            end={item.path === "/"}
+            onClick={closeMenu}
+            className={({ isActive }) =>
+              `zc-mobile-link ${isActive ? "active" : ""}`
+            }
+          >
+            {item.label}
+          </NavLink>
+        ))}
+
+        <div className="zc-mobile-products">
+
+          <button
+            type="button"
+            className="zc-mobile-link zc-mobile-product-toggle"
+            onClick={() => setProductsOpen(!productsOpen)}
+            aria-expanded={productsOpen}
+          >
+            Products & Services
+            <ChevronDown
+              size={18}
+              className={productsOpen ? "zc-chevron-open" : ""}
+            />
+          </button>
+
+          {productsOpen && (
+            <div className="zc-mobile-product-list">
+              {products.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={closeMenu}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          )}
+
+        </div>
+
+        {navLinks.slice(2).map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            onClick={closeMenu}
+            className={({ isActive }) =>
+              `zc-mobile-link ${isActive ? "active" : ""}`
+            }
+          >
+            {item.label}
+          </NavLink>
+        ))}
+
+        <Link
+          to="/schedule-call"
+          className="zc-mobile-cta"
+          onClick={closeMenu}
+        >
+          <CalendarDays size={19} />
+          Schedule a Call with Our Team
+          <ArrowUpRight size={18} />
+        </Link>
+
+      </div>
+
+      {menuOpen && (
+        <button
+          type="button"
+          className="zc-mobile-backdrop"
+          aria-label="Close navigation menu"
+          onClick={closeMenu}
+        />
+      )}
+
+    </header>
   );
-};
+}
 
 export default Navbar;

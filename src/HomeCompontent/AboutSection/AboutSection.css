@@ -1,0 +1,585 @@
+
+/* =========================================
+   ZIADENT CARE
+   PREMIUM ABOUT SECTION
+========================================= */
+
+.zc-about-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 5% 15%,
+      rgba(67, 166, 200, 0.12),
+      transparent 34%
+    ),
+    linear-gradient(
+      110deg,
+      #F0FAFC 0%,
+      #FFFFFF 48%,
+      #F5FBFD 100%
+    );
+}
+
+/* MAIN CONTAINER */
+
+.zc-about-container {
+  width: min(1500px, calc(100% - 80px));
+  min-height: 570px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.94fr 1.06fr;
+  align-items: center;
+
+  gap: 55px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* =========================================
+   LEFT IMAGE
+========================================= */
+
+.zc-about-image-area {
+  position: relative;
+  min-width: 0;
+
+  padding: 0 10px 0 0;
+}
+
+.zc-about-image-border {
+  position: relative;
+
+  width: 100%;
+  height: 470px;
+
+  overflow: hidden;
+
+  border: 3px solid #FFFFFF;
+  border-radius: 28px 100px 28px 28px;
+
+  box-shadow:
+    12px 12px 0 rgba(249, 182, 50, 0.95),
+    0 20px 45px rgba(23, 50, 71, 0.15);
+
+  background: #DCEEF3;
+}
+
+.zc-about-main-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.7s ease;
+}
+
+.zc-about-image-border:hover .zc-about-main-image {
+  transform: scale(1.045);
+}
+
+.zc-about-image-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    transparent 55%,
+    rgba(7, 46, 67, 0.2) 100%
+  );
+
+  pointer-events: none;
+}
+
+/* ESTABLISHED BADGE */
+
+.zc-about-established {
+  position: absolute;
+  z-index: 2;
+
+  left: 28px;
+  bottom: 25px;
+
+  min-height: 54px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 8px 20px;
+
+  color: #173247;
+  background: rgba(255, 255, 255, 0.96);
+
+  border: 1px solid #E3F0F3;
+  border-radius: 50px;
+
+  box-shadow: 0 8px 25px rgba(23, 50, 71, 0.13);
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.zc-about-calendar-icon {
+  display: grid;
+  place-items: center;
+
+  color: #D99A17;
+}
+
+/* =========================================
+   RIGHT CONTENT
+========================================= */
+
+.zc-about-content {
+  position: relative;
+  min-width: 0;
+
+  padding: 8px 0;
+
+  animation: zcAboutReveal 0.8s ease both;
+}
+
+@keyframes zcAboutReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* EYEBROW */
+
+.zc-about-eyebrow {
+  width: fit-content;
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 7px 17px;
+
+  color: #173247;
+  background: rgba(255, 255, 255, 0.85);
+
+  border: 1px solid #43A6C8;
+  border-radius: 50px;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  margin-bottom: 18px;
+}
+
+.zc-about-eyebrow-icon {
+  display: grid;
+  place-items: center;
+
+  color: #43A6C8;
+}
+
+/* HEADING */
+
+.zc-about-title {
+  color: #173247;
+
+  font-family: var(--font-heading);
+  font-size: clamp(34px, 3.3vw, 54px);
+  font-weight: 850;
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+
+  margin-bottom: 20px;
+}
+
+.zc-about-title span {
+  position: relative;
+  display: inline-block;
+
+  color: #D99A17;
+}
+
+.zc-about-title span::after {
+  content: "";
+
+  position: absolute;
+  left: 4%;
+  bottom: -7px;
+
+  width: 92%;
+  height: 4px;
+
+  border-bottom: 3px solid #F9B632;
+  border-radius: 50%;
+
+  transform: rotate(-3deg);
+}
+
+/* DESCRIPTION */
+
+.zc-about-description {
+  max-width: 690px;
+
+  color: #536A7B;
+
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.8;
+
+  margin-bottom: 25px;
+}
+
+.zc-about-description strong {
+  color: #173247;
+  font-weight: 800;
+}
+
+/* =========================================
+   FEATURE CARDS
+========================================= */
+
+.zc-about-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+}
+
+.zc-about-feature-card {
+  min-width: 0;
+  min-height: 105px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  padding: 12px;
+
+  background: rgba(255, 255, 255, 0.78);
+
+  border: 1px solid #BDE6F0;
+  border-radius: 17px;
+
+  box-shadow: 0 7px 18px rgba(67, 166, 200, 0.09);
+
+  transition: all 0.3s ease;
+}
+
+.zc-about-feature-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 12px 25px rgba(67, 166, 200, 0.15);
+}
+
+.zc-about-feature-card.gold {
+  background: #FFFAF0;
+  border-color: #F9D991;
+
+  box-shadow: 0 7px 18px rgba(249, 182, 50, 0.1);
+}
+
+.zc-about-feature-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #1786A8;
+}
+
+.zc-about-feature-card.gold .zc-about-feature-icon {
+  color: #D99A17;
+}
+
+.zc-about-feature-divider {
+  width: 1px;
+  height: 48px;
+  flex-shrink: 0;
+
+  background: #B8D9E2;
+}
+
+.zc-about-feature-card.gold .zc-about-feature-divider {
+  background: #E9D6A8;
+}
+
+.zc-about-feature-text {
+  min-width: 0;
+}
+
+.zc-about-feature-text strong,
+.zc-about-feature-text span {
+  display: block;
+
+  color: #173247;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.zc-about-feature-text strong {
+  font-weight: 800;
+}
+
+.zc-about-feature-text span {
+  color: #536A7B;
+  font-weight: 600;
+}
+
+/* =========================================
+   CTA BUTTON
+========================================= */
+
+.zc-about-cta {
+  width: fit-content;
+  min-height: 54px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  padding: 7px 9px 7px 24px;
+
+  color: #173247;
+  background: linear-gradient(
+    110deg,
+    #FFD76A,
+    #F9B632,
+    #EBA51E
+  );
+
+  border: 1px solid #F9B632;
+  border-radius: 50px;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  box-shadow: 0 7px 18px rgba(249, 182, 50, 0.2);
+
+  transition: all 0.3s ease;
+}
+
+.zc-about-cta:hover {
+  color: #173247;
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 25px rgba(249, 182, 50, 0.3);
+}
+
+.zc-about-cta-icon {
+  width: 39px;
+  height: 39px;
+
+  display: grid;
+  place-items: center;
+
+  color: #FFFFFF;
+  background: #A96B0B;
+
+  border-radius: 50%;
+
+  transition: transform 0.3s ease;
+}
+
+.zc-about-cta:hover .zc-about-cta-icon {
+  transform: translateX(3px);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .zc-about-container {
+    width: calc(100% - 50px);
+
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 30px;
+  }
+
+  .zc-about-image-border {
+    height: 410px;
+    border-radius: 25px 75px 25px 25px;
+  }
+
+  .zc-about-title {
+    font-size: clamp(31px, 3.5vw, 42px);
+  }
+
+  .zc-about-description {
+    font-size: 14px;
+  }
+
+  .zc-about-features {
+    gap: 8px;
+  }
+
+  .zc-about-feature-card {
+    min-height: 95px;
+    gap: 7px;
+    padding: 8px;
+  }
+
+  .zc-about-feature-icon {
+    width: 36px;
+  }
+
+  .zc-about-feature-icon svg {
+    width: 29px;
+    height: 29px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 760px) {
+  .zc-about-container {
+    width: calc(100% - 32px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 25px;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .zc-about-image-area {
+    width: 100%;
+    padding-right: 7px;
+  }
+
+  .zc-about-image-border {
+    height: 330px;
+
+    border-radius: 22px 65px 22px 22px;
+
+    box-shadow:
+      7px 7px 0 #F9B632,
+      0 15px 30px rgba(23, 50, 71, 0.12);
+  }
+
+  .zc-about-established {
+    left: 15px;
+    bottom: 15px;
+
+    min-height: 45px;
+    padding: 7px 13px;
+
+    font-size: 12px;
+  }
+
+  .zc-about-calendar-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .zc-about-content {
+    padding: 0;
+  }
+
+  .zc-about-eyebrow {
+    min-height: 38px;
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+
+  .zc-about-title {
+    font-size: clamp(30px, 7vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+    margin-bottom: 18px;
+  }
+
+  .zc-about-description {
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .zc-about-features {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .zc-about-feature-card {
+    min-height: 75px;
+    justify-content: flex-start;
+    padding: 10px 15px;
+    gap: 15px;
+  }
+
+  .zc-about-feature-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .zc-about-feature-divider {
+    height: 40px;
+  }
+
+  .zc-about-feature-text strong,
+  .zc-about-feature-text span {
+    font-size: 13px;
+  }
+
+  .zc-about-cta {
+    width: 100%;
+    min-height: 52px;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+  .zc-about-image-border {
+    height: 280px;
+  }
+
+  .zc-about-title {
+    font-size: 29px;
+  }
+
+  .zc-about-feature-card {
+    gap: 10px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .zc-about-section *,
+  .zc-about-section *::before,
+  .zc-about-section *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+

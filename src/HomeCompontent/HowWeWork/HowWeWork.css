@@ -1,0 +1,648 @@
+
+/* =========================================
+   ZIADENT CARE
+   HOW WE WORK SECTION
+========================================= */
+
+.zc-process-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at 8% 10%,
+      rgba(67, 166, 200, 0.15),
+      transparent 35%
+    ),
+    linear-gradient(
+      120deg,
+      #EAF7FA 0%,
+      #FFFFFF 50%,
+      #EFF9FC 100%
+    );
+}
+
+/* BACKGROUND GLOW */
+
+.zc-process-glow {
+  position: absolute;
+  z-index: -1;
+
+  width: 350px;
+  height: 350px;
+
+  border-radius: 50%;
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle,
+    rgba(67, 166, 200, 0.16),
+    transparent 70%
+  );
+}
+
+.zc-process-glow-one {
+  top: -150px;
+  left: -120px;
+}
+
+.zc-process-glow-two {
+  right: -150px;
+  bottom: -130px;
+
+  background: radial-gradient(
+    circle,
+    rgba(249, 182, 50, 0.12),
+    transparent 70%
+  );
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.zc-process-container {
+  width: min(1500px, calc(100% - 70px));
+
+  margin: 0 auto;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.zc-process-header {
+  max-width: 1000px;
+
+  margin: 0 auto 35px;
+
+  text-align: center;
+}
+
+.zc-process-eyebrow {
+  width: fit-content;
+  min-height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin: 0 auto 16px;
+  padding: 7px 20px;
+
+  color: #173247;
+  background: rgba(255, 255, 255, 0.95);
+
+  border: 1px solid #43A6C8;
+  border-radius: 50px;
+
+  box-shadow: 0 5px 16px rgba(67, 166, 200, 0.08);
+
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.zc-process-eyebrow-icon {
+  width: 31px;
+  height: 31px;
+
+  display: grid;
+  place-items: center;
+
+  color: #FFFFFF;
+  background: #43A6C8;
+
+  border-radius: 50%;
+}
+
+.zc-process-heading {
+  color: #173247;
+
+  font-family: var(--font-heading);
+  font-size: clamp(34px, 3.5vw, 52px);
+
+  font-weight: 850;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+
+  margin-bottom: 14px;
+}
+
+.zc-process-heading span {
+  position: relative;
+  display: inline-block;
+
+  color: #D99A17;
+}
+
+.zc-process-heading span::after {
+  content: "";
+
+  position: absolute;
+
+  left: 4%;
+  bottom: -7px;
+
+  width: 92%;
+  height: 4px;
+
+  border-bottom: 3px solid #F9B632;
+  border-radius: 50%;
+
+  transform: rotate(-2deg);
+}
+
+.zc-process-intro {
+  max-width: 780px;
+
+  margin: 0 auto;
+
+  color: #536A7B;
+
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.75;
+}
+
+/* =========================================
+   TIMELINE
+========================================= */
+
+.zc-process-timeline {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 28px;
+
+  align-items: stretch;
+}
+
+.zc-process-item {
+  position: relative;
+  min-width: 0;
+}
+
+/* =========================================
+   PROCESS CARD
+========================================= */
+
+.zc-process-card {
+  position: relative;
+
+  height: 100%;
+  min-height: 405px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 0 10px 18px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.96),
+    rgba(226, 245, 250, 0.92)
+  );
+
+  border: 1px solid #BFE6F0;
+  border-radius: 28px;
+
+  box-shadow:
+    0 12px 25px rgba(67, 166, 200, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.zc-process-item:nth-child(even) .zc-process-card {
+  background: linear-gradient(
+    145deg,
+    #FFFFFF,
+    #F2FAFC
+  );
+}
+
+.zc-process-card:hover {
+  transform: translateY(-7px);
+
+  border-color: #F9B632;
+
+  box-shadow:
+    0 19px 35px rgba(67, 166, 200, 0.17),
+    0 5px 14px rgba(249, 182, 50, 0.12);
+}
+
+/* =========================================
+   CIRCULAR IMAGE
+========================================= */
+
+.zc-process-image-wrap {
+  position: relative;
+
+  width: calc(100% + 20px);
+  aspect-ratio: 1 / 0.82;
+
+  flex-shrink: 0;
+
+  margin-top: -1px;
+
+  overflow: visible;
+}
+
+.zc-process-image-wrap::before {
+  content: "";
+
+  position: absolute;
+  z-index: 1;
+
+  inset: 0;
+
+  border: 4px solid #FFFFFF;
+  border-radius: 50%;
+
+  box-shadow:
+    4px -2px 0 #F9B632,
+    0 8px 20px rgba(23, 50, 71, 0.12);
+
+  pointer-events: none;
+}
+
+.zc-process-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 50%;
+
+  transition: transform 0.55s ease;
+}
+
+.zc-process-card:hover .zc-process-image {
+  transform: scale(1.055);
+}
+
+.zc-process-image-overlay {
+  position: absolute;
+  inset: 0;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    180deg,
+    transparent 65%,
+    rgba(7, 47, 69, 0.2)
+  );
+
+  pointer-events: none;
+}
+
+/* NUMBER BADGE */
+
+.zc-process-number {
+  position: absolute;
+  z-index: 3;
+
+  left: 50%;
+  bottom: -18px;
+
+  width: 55px;
+  height: 55px;
+
+  display: grid;
+  place-items: center;
+
+  color: #FFFFFF;
+  background: linear-gradient(
+    145deg,
+    #43A6C8,
+    #087B9B
+  );
+
+  border: 4px solid #FFFFFF;
+  border-radius: 50%;
+
+  box-shadow: 0 6px 15px rgba(23, 50, 71, 0.16);
+
+  font-size: 17px;
+  font-weight: 900;
+
+  transform: translateX(-50%);
+}
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.zc-process-card-content {
+  position: relative;
+
+  width: 100%;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 32px;
+
+  text-align: center;
+}
+
+.zc-process-card-icon {
+  display: none;
+}
+
+.zc-process-card-content h3 {
+  min-height: 55px;
+
+  color: #173247;
+
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 850;
+  line-height: 1.35;
+
+  margin-bottom: 8px;
+}
+
+.zc-process-card-line {
+  width: 70px;
+  height: 4px;
+
+  display: block;
+
+  margin-bottom: 13px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #F9B632,
+    transparent
+  );
+
+  border-radius: 50%;
+}
+
+.zc-process-card-content p {
+  max-width: 230px;
+
+  color: #536A7B;
+
+  font-size: 13px;
+  font-weight: 550;
+  line-height: 1.65;
+}
+
+/* =========================================
+   CONNECTING ARROWS
+========================================= */
+
+.zc-process-connector {
+  position: absolute;
+  z-index: 5;
+
+  top: 34%;
+  left: -29px;
+
+  width: 31px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #087B9B;
+
+  transform: translateY(-50%);
+}
+
+.zc-process-connector span {
+  position: absolute;
+
+  right: 14px;
+
+  width: 30px;
+  height: 3px;
+
+  background: #43A6C8;
+  border-radius: 5px;
+}
+
+.zc-process-connector svg {
+  position: relative;
+  z-index: 2;
+
+  width: 35px;
+  height: 35px;
+
+  padding: 6px;
+
+  color: #087B9B;
+  background: #FFFFFF;
+
+  border: 1px solid #C5EBF4;
+  border-radius: 50%;
+
+  filter: drop-shadow(0 3px 5px rgba(67, 166, 200, 0.12));
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .zc-process-container {
+    width: calc(100% - 40px);
+  }
+
+  .zc-process-timeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .zc-process-card {
+    min-height: 370px;
+  }
+
+  .zc-process-card-content h3 {
+    font-size: 16px;
+  }
+
+  .zc-process-connector {
+    display: none;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+  .zc-process-container {
+    width: calc(100% - 32px);
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .zc-process-header {
+    margin-bottom: 27px;
+  }
+
+  .zc-process-eyebrow {
+    min-height: 39px;
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+
+  .zc-process-heading {
+    font-size: clamp(29px, 7vw, 39px);
+    line-height: 1.2;
+    letter-spacing: -0.7px;
+  }
+
+  .zc-process-intro {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .zc-process-timeline {
+    grid-template-columns: 1fr;
+    gap: 17px;
+
+    padding-left: 10px;
+  }
+
+  .zc-process-item {
+    min-height: 180px;
+  }
+
+  .zc-process-card {
+    min-height: 180px;
+
+    display: grid;
+    grid-template-columns: 125px minmax(0, 1fr);
+    align-items: center;
+
+    gap: 17px;
+
+    padding: 12px;
+
+    border-radius: 20px;
+  }
+
+  .zc-process-image-wrap {
+    width: 125px;
+    height: 125px;
+
+    aspect-ratio: auto;
+  }
+
+  .zc-process-image-wrap::before {
+    border-width: 3px;
+  }
+
+  .zc-process-number {
+    width: 43px;
+    height: 43px;
+
+    bottom: -7px;
+
+    border-width: 3px;
+
+    font-size: 13px;
+  }
+
+  .zc-process-card-content {
+    align-items: flex-start;
+
+    padding: 0;
+
+    text-align: left;
+  }
+
+  .zc-process-card-icon {
+    display: grid;
+    place-items: center;
+
+    width: 30px;
+    height: 30px;
+
+    margin-bottom: 7px;
+
+    color: #087B9B;
+    background: #E3F6FA;
+
+    border-radius: 9px;
+  }
+
+  .zc-process-card-content h3 {
+    min-height: 0;
+
+    font-size: 15px;
+    line-height: 1.4;
+
+    margin-bottom: 7px;
+  }
+
+  .zc-process-card-line {
+    width: 52px;
+    height: 3px;
+
+    margin-bottom: 7px;
+  }
+
+  .zc-process-card-content p {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .zc-process-connector {
+    display: none;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+  .zc-process-card {
+    grid-template-columns: 105px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .zc-process-image-wrap {
+    width: 105px;
+    height: 105px;
+  }
+
+  .zc-process-card-content h3 {
+    font-size: 13px;
+  }
+
+  .zc-process-heading {
+    font-size: 28px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .zc-process-section *,
+  .zc-process-section *::before,
+  .zc-process-section *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

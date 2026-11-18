@@ -1,0 +1,757 @@
+
+/* =========================================
+   ZIADENT CARE
+   FINAL CTA SECTION
+========================================= */
+
+.zc-final-cta {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at 75% 25%,
+      rgba(67, 166, 200, 0.28),
+      transparent 34%
+    ),
+    linear-gradient(
+      110deg,
+      #FFFFFF 0%,
+      #F0FAFC 44%,
+      #BFEAF5 100%
+    );
+}
+
+/* =========================================
+   BACKGROUND DECORATION
+========================================= */
+
+.zc-cta-blue-glow,
+.zc-cta-light-orb {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.zc-cta-blue-glow {
+  width: 600px;
+  height: 600px;
+  top: -230px;
+  right: -80px;
+
+  background: radial-gradient(
+    circle,
+    rgba(0, 153, 198, 0.28),
+    transparent 70%
+  );
+}
+
+.zc-cta-light-orb {
+  width: 400px;
+  height: 400px;
+  left: -180px;
+  bottom: -150px;
+
+  background: radial-gradient(
+    circle,
+    rgba(67, 166, 200, 0.15),
+    transparent 70%
+  );
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.zc-cta-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(1500px, calc(100% - 80px));
+  min-height: 520px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+
+  align-items: center;
+  gap: 25px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* =========================================
+   LEFT CONTENT
+========================================= */
+
+.zc-cta-content {
+  position: relative;
+  z-index: 5;
+  min-width: 0;
+
+  animation: zcCtaReveal 0.8s ease both;
+}
+
+@keyframes zcCtaReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* EYEBROW */
+
+.zc-cta-eyebrow {
+  width: fit-content;
+  min-height: 54px;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  margin-bottom: 29px;
+  padding: 6px 23px 6px 8px;
+
+  color: #173247;
+  background: rgba(255, 255, 255, 0.94);
+
+  border: 2px solid #43A6C8;
+  border-radius: 50px;
+
+  box-shadow: 0 7px 20px rgba(67, 166, 200, 0.1);
+
+  font-size: 17px;
+  font-weight: 850;
+}
+
+.zc-cta-eyebrow-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #FFFFFF;
+  background: #159FC1;
+
+  border-radius: 50%;
+}
+
+/* HEADING */
+
+.zc-cta-title {
+  color: #142A58;
+
+  font-family: var(--font-heading);
+  font-size: clamp(40px, 4.6vw, 67px);
+
+  font-weight: 900;
+  line-height: 1.09;
+  letter-spacing: -2px;
+
+  margin-bottom: 24px;
+}
+
+.zc-cta-title span {
+  position: relative;
+  display: inline-block;
+
+  color: #EBA51E;
+}
+
+.zc-cta-title span::after {
+  content: "";
+
+  position: absolute;
+  left: 5%;
+  bottom: -12px;
+
+  width: 92%;
+  height: 7px;
+
+  border-bottom: 5px solid #F9B632;
+  border-radius: 50%;
+
+  transform: rotate(-2deg);
+}
+
+/* DESCRIPTION */
+
+.zc-cta-description {
+  max-width: 670px;
+
+  color: #35465F;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+
+  margin-bottom: 27px;
+}
+
+/* =========================================
+   CTA BUTTON
+========================================= */
+
+.zc-cta-button {
+  width: fit-content;
+  min-height: 74px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 8px 13px 8px 19px;
+
+  color: #142A58;
+  background: linear-gradient(
+    110deg,
+    #FFD45A,
+    #FFB900,
+    #F0A400
+  );
+
+  border: 3px solid #FFFFFF;
+  border-radius: 50px;
+
+  box-shadow:
+    0 11px 25px rgba(225, 160, 25, 0.25),
+    0 5px 12px rgba(23, 50, 71, 0.08);
+
+  font-size: 17px;
+  font-weight: 900;
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.zc-cta-button:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 16px 30px rgba(225, 160, 25, 0.32);
+}
+
+.zc-cta-phone-icon {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #142A58;
+
+  border-right: 2px solid rgba(20, 42, 88, 0.5);
+  padding-right: 12px;
+
+  box-sizing: content-box;
+}
+
+.zc-cta-button-text {
+  white-space: nowrap;
+}
+
+.zc-cta-arrow {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #FFFFFF;
+  background: #142A58;
+
+  border-radius: 50%;
+
+  transition: transform 0.3s ease;
+}
+
+.zc-cta-button:hover .zc-cta-arrow {
+  transform: translateX(4px);
+}
+
+/* =========================================
+   RIGHT VISUAL
+========================================= */
+
+.zc-cta-visual {
+  position: relative;
+  min-width: 0;
+  min-height: 455px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  perspective: 1000px;
+}
+
+/* IMAGE GLOW */
+
+.zc-cta-image-glow {
+  position: absolute;
+  z-index: 0;
+
+  width: 95%;
+  height: 75%;
+
+  right: 0;
+  bottom: 15px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 255, 255, 0.95),
+    rgba(67, 166, 200, 0.2) 60%,
+    transparent 75%
+  );
+
+  filter: blur(12px);
+}
+
+/* =========================================
+   3D IMAGE PLATFORM
+========================================= */
+
+.zc-cta-image-platform {
+  position: absolute;
+  z-index: 1;
+
+  width: 95%;
+  height: 85px;
+
+  bottom: 14px;
+  right: 0;
+
+  background: linear-gradient(
+    180deg,
+    #FFFFFF,
+    #D9EAF0
+  );
+
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+
+  box-shadow:
+    0 17px 30px rgba(23, 50, 71, 0.13),
+    inset 0 -8px 12px rgba(67, 166, 200, 0.12);
+}
+
+/* =========================================
+   CURVED IMAGE FRAME
+========================================= */
+
+.zc-cta-image-frame {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 390px;
+
+  overflow: hidden;
+
+  background: linear-gradient(
+    145deg,
+    #DDF4F9,
+    #FFFFFF
+  );
+
+  border: 4px solid #FFFFFF;
+
+  border-radius:
+    55% 45% 35% 40% /
+    35% 40% 60% 65%;
+
+  box-shadow:
+    0 18px 40px rgba(23, 50, 71, 0.14),
+    0 0 0 2px rgba(67, 166, 200, 0.2);
+
+  transform: rotate(2deg);
+
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+
+  animation: zcCtaImageFloat 5s ease-in-out infinite;
+}
+
+.zc-cta-image-frame:hover {
+  transform: rotate(0deg) translateY(-5px);
+
+  box-shadow:
+    0 25px 45px rgba(23, 50, 71, 0.18),
+    0 0 0 3px rgba(249, 182, 50, 0.5);
+}
+
+@keyframes zcCtaImageFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -9px;
+  }
+}
+
+/* IMAGE */
+
+.zc-cta-main-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: inherit;
+
+  transition: transform 0.7s ease;
+}
+
+.zc-cta-image-frame:hover .zc-cta-main-image {
+  transform: scale(1.07);
+}
+
+/* =========================================
+   FLOATING ICON ORBIT
+========================================= */
+
+.zc-cta-orbit {
+  position: absolute;
+  z-index: 3;
+
+  width: 90%;
+  height: 390px;
+
+  top: 0;
+  left: 5%;
+
+  border-top: 3px solid rgba(249, 182, 50, 0.9);
+  border-radius: 50% 50% 0 0;
+
+  transform: rotate(-10deg);
+
+  pointer-events: none;
+}
+
+.zc-cta-orbit-icon {
+  position: absolute;
+
+  width: 78px;
+  height: 78px;
+
+  display: grid;
+  place-items: center;
+
+  color: #159FC1;
+  background: rgba(255, 255, 255, 0.9);
+
+  border: 3px solid #FFFFFF;
+  border-radius: 19px;
+
+  box-shadow: 0 9px 22px rgba(23, 50, 71, 0.12);
+
+  backdrop-filter: blur(8px);
+
+  animation: zcOrbitFloat 4s ease-in-out infinite;
+}
+
+.zc-cta-orbit-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.zc-cta-tooth {
+  top: 95px;
+  left: 0;
+}
+
+.zc-cta-bridge {
+  top: 15px;
+  left: 43%;
+  animation-delay: 0.5s;
+}
+
+.zc-cta-implant {
+  top: -20px;
+  right: 5%;
+  animation-delay: 1s;
+}
+
+@keyframes zcOrbitFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -9px;
+  }
+}
+
+/* FLOATING DETAIL */
+
+.zc-cta-floating-detail {
+  position: absolute;
+  z-index: 4;
+
+  left: 10%;
+  bottom: 100px;
+
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  color: #142A58;
+  background: #F9B632;
+
+  border: 3px solid #FFFFFF;
+  border-radius: 50%;
+
+  box-shadow: 0 8px 18px rgba(23, 50, 71, 0.13);
+
+  animation: zcOrbitFloat 4.5s ease-in-out infinite;
+}
+
+/* =========================================
+   BOTTOM WAVE
+========================================= */
+
+.zc-cta-wave {
+  position: absolute;
+  z-index: 1;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 105px;
+
+  pointer-events: none;
+}
+
+.zc-cta-wave svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+  .zc-cta-container {
+    width: calc(100% - 50px);
+
+    grid-template-columns: 1fr 0.9fr;
+    gap: 15px;
+  }
+
+  .zc-cta-title {
+    font-size: clamp(37px, 4.5vw, 53px);
+  }
+
+  .zc-cta-description {
+    font-size: 14px;
+  }
+
+  .zc-cta-button {
+    min-height: 64px;
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .zc-cta-visual {
+    min-height: 400px;
+  }
+
+  .zc-cta-image-frame {
+    height: 330px;
+  }
+
+  .zc-cta-orbit {
+    height: 320px;
+  }
+
+  .zc-cta-orbit-icon {
+    width: 62px;
+    height: 62px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 760px) {
+  .zc-cta-container {
+    width: calc(100% - 32px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 15px;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .zc-cta-content {
+    width: 100%;
+  }
+
+  .zc-cta-eyebrow {
+    min-height: 45px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .zc-cta-title {
+    font-size: clamp(35px, 8vw, 49px);
+    line-height: 1.13;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .zc-cta-description {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .zc-cta-button {
+    width: 100%;
+    min-height: 60px;
+
+    justify-content: space-between;
+    gap: 8px;
+
+    padding: 7px 9px 7px 13px;
+
+    font-size: 13px;
+  }
+
+  .zc-cta-phone-icon {
+    width: 36px;
+    height: 36px;
+    padding-right: 8px;
+  }
+
+  .zc-cta-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .zc-cta-visual {
+    width: 100%;
+    min-height: 330px;
+  }
+
+  .zc-cta-image-frame {
+    width: 94%;
+    height: 285px;
+  }
+
+  .zc-cta-image-platform {
+    width: 92%;
+    height: 55px;
+  }
+
+  .zc-cta-orbit {
+    width: 85%;
+    height: 270px;
+    left: 8%;
+  }
+
+  .zc-cta-orbit-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+  }
+
+  .zc-cta-orbit-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .zc-cta-tooth {
+    top: 75px;
+  }
+
+  .zc-cta-bridge {
+    top: 10px;
+  }
+
+  .zc-cta-implant {
+    top: -15px;
+  }
+
+  .zc-cta-floating-detail {
+    left: 7%;
+    bottom: 60px;
+
+    width: 40px;
+    height: 40px;
+  }
+
+  .zc-cta-wave {
+    height: 55px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .zc-cta-title {
+    font-size: 32px;
+  }
+
+  .zc-cta-button-text {
+    font-size: 12px;
+  }
+
+  .zc-cta-visual {
+    min-height: 280px;
+  }
+
+  .zc-cta-image-frame {
+    height: 245px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .zc-final-cta *,
+  .zc-final-cta *::before,
+  .zc-final-cta *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

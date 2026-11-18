@@ -1,0 +1,748 @@
+
+/* =========================================
+   ZIADENT CARE
+   PREMIUM PRODUCTS AND SERVICES
+========================================= */
+
+.zc-products-section {
+  position: relative;
+  width: 100%;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at 5% 5%,
+      rgba(67, 166, 200, 0.14),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #F0FAFC 0%,
+      #FFFFFF 50%,
+      #EAF7FA 100%
+    );
+}
+
+/* BACKGROUND DECORATIONS */
+
+.zc-products-bg-glow {
+  position: absolute;
+  z-index: -1;
+
+  width: 450px;
+  height: 450px;
+
+  top: 12%;
+  right: -200px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(67, 166, 200, 0.18),
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+.zc-products-tooth-decoration {
+  position: absolute;
+  z-index: -1;
+
+  top: 35px;
+  right: 4%;
+
+  color: rgba(67, 166, 200, 0.12);
+
+  font-size: 130px;
+
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+
+.zc-products-tooth-decoration svg {
+  width: 125px;
+  height: 125px;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.zc-products-container {
+  position: relative;
+  z-index: 1;
+
+  width: min(1500px, calc(100% - 70px));
+
+  margin: 0 auto;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.zc-products-heading {
+  max-width: 1000px;
+
+  margin: 0 auto 30px;
+
+  text-align: center;
+}
+
+.zc-products-eyebrow {
+  width: fit-content;
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin: 0 auto 16px;
+  padding: 8px 20px;
+
+  color: #173247;
+  background: rgba(255, 255, 255, 0.9);
+
+  border: 1px solid #43A6C8;
+  border-radius: 50px;
+
+  box-shadow: 0 5px 18px rgba(67, 166, 200, 0.08);
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.zc-products-eyebrow svg {
+  color: #43A6C8;
+  font-size: 18px;
+}
+
+.zc-products-heading h2 {
+  color: #173247;
+
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 3.2vw, 49px);
+  font-weight: 850;
+  line-height: 1.15;
+  letter-spacing: -1.3px;
+
+  margin-bottom: 14px;
+}
+
+.zc-products-heading h2 span {
+  position: relative;
+  display: inline-block;
+
+  color: #D99A17;
+}
+
+.zc-products-heading h2 span::after {
+  content: "";
+
+  position: absolute;
+
+  left: 5%;
+  bottom: -7px;
+
+  width: 90%;
+  height: 4px;
+
+  border-bottom: 3px solid #F9B632;
+  border-radius: 50%;
+
+  transform: rotate(-2deg);
+}
+
+.zc-products-heading > p {
+  max-width: 790px;
+
+  margin: 0 auto;
+
+  color: #536A7B;
+
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.75;
+}
+
+/* =========================================
+   PRODUCT GRID
+========================================= */
+
+.zc-products-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 17px;
+}
+
+/* =========================================
+   PRODUCT CARD
+========================================= */
+
+.zc-product-card {
+  position: relative;
+
+  min-width: 0;
+  min-height: 205px;
+
+  display: flex;
+  align-items: stretch;
+
+  overflow: hidden;
+
+  padding: 17px 15px 15px 18px;
+
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.98),
+    rgba(228, 244, 250, 0.9)
+  );
+
+  border: 1px solid #CBEAF2;
+  border-radius: 22px;
+
+  box-shadow:
+    0 9px 22px rgba(30, 91, 119, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+
+  animation: zcProductReveal 0.6s ease both;
+  animation-delay: calc(var(--card-index) * 60ms);
+}
+
+@keyframes zcProductReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.zc-product-card:hover {
+  transform: translateY(-7px) rotateX(1deg);
+
+  border-color: #F9B632;
+
+  box-shadow:
+    0 17px 32px rgba(30, 91, 119, 0.15),
+    0 5px 14px rgba(249, 182, 50, 0.12);
+}
+
+/* =========================================
+   PRODUCT CONTENT
+========================================= */
+
+.zc-product-content {
+  position: relative;
+  z-index: 3;
+
+  width: 64%;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.zc-product-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 12px;
+}
+
+.zc-product-icon {
+  width: 53px;
+  height: 53px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #1685A6;
+  background: #E3F6FA;
+
+  border: 1px solid #C5EBF4;
+  border-radius: 14px;
+
+  box-shadow: 0 4px 10px rgba(67, 166, 200, 0.1);
+
+  transition: all 0.3s ease;
+}
+
+.zc-product-icon svg {
+  width: 29px;
+  height: 29px;
+}
+
+.zc-product-card:hover .zc-product-icon {
+  color: #173247;
+  background: #F9B632;
+
+  border-color: #F9B632;
+
+  transform: rotate(-7deg) scale(1.06);
+}
+
+.zc-product-title {
+  min-width: 0;
+}
+
+.zc-product-title h3,
+.zc-product-title h4 {
+  color: #173247;
+
+  font-family: var(--font-heading);
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.zc-product-title h3 {
+  font-weight: 850;
+}
+
+.zc-product-title h4 {
+  font-weight: 800;
+}
+
+/* DESCRIPTION */
+
+.zc-product-description {
+  max-width: 235px;
+
+  color: #536A7B;
+
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 1.65;
+
+  margin-bottom: 13px;
+}
+
+/* =========================================
+   EXPLORE BUTTON
+========================================= */
+
+.zc-product-link {
+  min-height: 39px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: auto;
+  padding: 5px 7px 5px 15px;
+
+  color: #173247;
+  background: rgba(255, 255, 255, 0.95);
+
+  border: 1px solid #F9B632;
+  border-radius: 50px;
+
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+
+  transition: all 0.3s ease;
+}
+
+.zc-product-link-icon {
+  width: 28px;
+  height: 28px;
+
+  display: grid;
+  place-items: center;
+
+  color: #173247;
+  background: #F9B632;
+
+  border-radius: 50%;
+
+  transition: all 0.3s ease;
+}
+
+.zc-product-link:hover {
+  color: #FFFFFF;
+  background: #267F9F;
+  border-color: #267F9F;
+}
+
+.zc-product-link:hover .zc-product-link-icon {
+  color: #173247;
+  background: #FFFFFF;
+
+  transform: rotate(45deg);
+}
+
+/* =========================================
+   PRODUCT IMAGE
+========================================= */
+
+.zc-product-image-wrap {
+  position: absolute;
+  z-index: 1;
+
+  right: 0;
+  bottom: 0;
+
+  width: 47%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+}
+
+.zc-product-image-glow {
+  position: absolute;
+
+  width: 90%;
+  height: 80%;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.95),
+    rgba(67, 166, 200, 0.13) 60%,
+    transparent 75%
+  );
+
+  filter: blur(8px);
+}
+
+.zc-product-image {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center bottom;
+
+  padding: 5px;
+
+  filter: drop-shadow(0 9px 10px rgba(23, 50, 71, 0.13));
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.zc-product-card:hover .zc-product-image {
+  transform: scale(1.1) translateY(-5px);
+
+  filter: drop-shadow(0 14px 13px rgba(23, 50, 71, 0.2));
+}
+
+.zc-product-image-shine {
+  position: absolute;
+  z-index: 3;
+
+  top: -40%;
+  left: -100%;
+
+  width: 45%;
+  height: 180%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+
+  transform: rotate(22deg);
+
+  transition: left 0.7s ease;
+}
+
+.zc-product-card:hover .zc-product-image-shine {
+  left: 150%;
+}
+
+/* CARD NUMBER */
+
+.zc-product-card-number {
+  position: absolute;
+  z-index: 4;
+
+  top: 10px;
+  right: 13px;
+
+  color: rgba(23, 50, 71, 0.25);
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* =========================================
+   BOTTOM CTA
+========================================= */
+
+.zc-products-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  margin-top: 25px;
+  padding: 14px 20px;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  border: 1px solid #DCECF1;
+  border-radius: 16px;
+
+  box-shadow: 0 5px 16px rgba(67, 166, 200, 0.06);
+}
+
+.zc-products-bottom-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.zc-products-bottom-icon {
+  width: 39px;
+  height: 39px;
+
+  display: grid;
+  place-items: center;
+
+  color: #173247;
+  background: #F9B632;
+
+  border-radius: 50%;
+}
+
+.zc-products-bottom-text p {
+  color: #173247;
+
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.zc-products-bottom-cta {
+  min-height: 43px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 9px 16px;
+
+  color: #173247;
+  background: #F9B632;
+
+  border-radius: 50px;
+
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+
+  transition: all 0.3s ease;
+}
+
+.zc-products-bottom-cta:hover {
+  color: #FFFFFF;
+  background: #267F9F;
+
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .zc-products-container {
+    width: calc(100% - 40px);
+  }
+
+  .zc-products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .zc-product-card {
+    min-height: 195px;
+  }
+
+  .zc-product-title h3,
+  .zc-product-title h4 {
+    font-size: 16px;
+  }
+
+  .zc-products-tooth-decoration {
+    font-size: 90px;
+  }
+
+  .zc-products-tooth-decoration svg {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .zc-products-container {
+    width: calc(100% - 28px);
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .zc-products-heading {
+    margin-bottom: 22px;
+  }
+
+  .zc-products-eyebrow {
+    min-height: 38px;
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+
+  .zc-products-heading h2 {
+    font-size: clamp(27px, 7vw, 35px);
+    letter-spacing: -0.7px;
+    line-height: 1.2;
+  }
+
+  .zc-products-heading > p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .zc-products-grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .zc-product-card {
+    min-height: 190px;
+
+    padding: 14px;
+
+    border-radius: 17px;
+  }
+
+  .zc-product-content {
+    width: 66%;
+  }
+
+  .zc-product-title-row {
+    gap: 9px;
+    margin-bottom: 10px;
+  }
+
+  .zc-product-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .zc-product-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .zc-product-title h3,
+  .zc-product-title h4 {
+    font-size: 15px;
+  }
+
+  .zc-product-description {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .zc-product-link {
+    min-height: 36px;
+    font-size: 12px;
+  }
+
+  .zc-product-image-wrap {
+    width: 43%;
+  }
+
+  .zc-products-bottom {
+    align-items: stretch;
+    flex-direction: column;
+
+    gap: 12px;
+
+    padding: 13px;
+  }
+
+  .zc-products-bottom-cta {
+    width: 100%;
+  }
+
+  .zc-products-tooth-decoration {
+    top: 25px;
+    right: -15px;
+    opacity: 0.5;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+  .zc-product-card {
+    min-height: 185px;
+    padding: 12px;
+  }
+
+  .zc-product-content {
+    width: 68%;
+  }
+
+  .zc-product-title h3,
+  .zc-product-title h4 {
+    font-size: 14px;
+  }
+
+  .zc-product-image-wrap {
+    width: 40%;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .zc-products-section *,
+  .zc-products-section *::before,
+  .zc-products-section *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

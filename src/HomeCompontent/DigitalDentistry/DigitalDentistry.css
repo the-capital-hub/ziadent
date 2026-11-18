@@ -1,0 +1,780 @@
+
+/* =========================================
+   ZIADENT CARE
+   DIGITAL DENTISTRY SECTION
+========================================= */
+
+.zc-digital-section {
+  position: relative;
+  width: 100%;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(67, 166, 200, 0.15),
+      transparent 30%
+    ),
+    linear-gradient(
+      120deg,
+      #EAF7FA 0%,
+      #FFFFFF 52%,
+      #F0FAFC 100%
+    );
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.zc-digital-container {
+  width: min(1500px, calc(100% - 80px));
+  min-height: 590px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+
+  align-items: center;
+  gap: 55px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* =========================================
+   LEFT VISUAL
+========================================= */
+
+.zc-digital-visual {
+  position: relative;
+  min-width: 0;
+
+  perspective: 1000px;
+}
+
+.zc-digital-image-frame {
+  position: relative;
+
+  width: 100%;
+  height: 495px;
+
+  overflow: hidden;
+
+  background: #DCEEF3;
+
+  border: 3px solid #FFFFFF;
+  border-radius: 28px 100px 28px 28px;
+
+  box-shadow:
+    11px 11px 0 #F9B632,
+    0 22px 45px rgba(23, 50, 71, 0.15);
+
+  transform: rotateY(3deg);
+
+  transition: transform 0.5s ease;
+}
+
+.zc-digital-image-frame:hover {
+  transform: rotateY(0deg) translateY(-4px);
+}
+
+.zc-digital-main-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.8s ease;
+}
+
+.zc-digital-image-frame:hover .zc-digital-main-image {
+  transform: scale(1.055);
+}
+
+.zc-digital-image-shade {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    transparent 50%,
+    rgba(5, 45, 68, 0.65) 100%
+  );
+
+  pointer-events: none;
+}
+
+/* IMAGE CAPTION */
+
+.zc-digital-image-caption {
+  position: absolute;
+  z-index: 2;
+
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  padding: 14px 16px;
+
+  color: #FFFFFF;
+  background: rgba(7, 69, 96, 0.82);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+
+  backdrop-filter: blur(12px);
+}
+
+.zc-digital-caption-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #173247;
+  background: #F9B632;
+
+  border-radius: 12px;
+}
+
+.zc-digital-image-caption strong,
+.zc-digital-image-caption span {
+  display: block;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.zc-digital-image-caption strong {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.zc-digital-image-caption div span {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* FLOATING CARD */
+
+.zc-digital-floating-card {
+  position: absolute;
+  z-index: 4;
+
+  top: 38px;
+  right: -23px;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 12px 16px;
+
+  color: #173247;
+  background: rgba(255, 255, 255, 0.95);
+
+  border: 1px solid #C6E8F0;
+  border-radius: 15px;
+
+  box-shadow: 0 12px 28px rgba(23, 50, 71, 0.12);
+
+  animation: zcDigitalFloat 4s ease-in-out infinite;
+}
+
+.zc-digital-floating-icon {
+  width: 43px;
+  height: 43px;
+
+  display: grid;
+  place-items: center;
+
+  color: #173247;
+  background: #F9B632;
+
+  border-radius: 12px;
+}
+
+.zc-digital-floating-card strong,
+.zc-digital-floating-card span {
+  display: block;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.zc-digital-floating-card strong {
+  font-weight: 850;
+}
+
+.zc-digital-floating-card span {
+  color: #536A7B;
+  font-weight: 600;
+}
+
+@keyframes zcDigitalFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+/* ORBIT */
+
+.zc-digital-orbit {
+  position: absolute;
+  z-index: -1;
+
+  width: 240px;
+  height: 240px;
+
+  right: -65px;
+  bottom: -45px;
+
+  border: 2px solid rgba(67, 166, 200, 0.25);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   RIGHT CONTENT
+========================================= */
+
+.zc-digital-content {
+  position: relative;
+  min-width: 0;
+
+  animation: zcDigitalReveal 0.8s ease both;
+}
+
+@keyframes zcDigitalReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* EYEBROW */
+
+.zc-digital-eyebrow {
+  width: fit-content;
+  min-height: 43px;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 8px 17px;
+
+  margin-bottom: 20px;
+
+  color: #173247;
+  background: #FFFFFF;
+
+  border: 1px solid #43A6C8;
+  border-radius: 50px;
+
+  box-shadow: 0 5px 15px rgba(67, 166, 200, 0.08);
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.zc-digital-eyebrow-icon {
+  display: grid;
+  place-items: center;
+
+  color: #1685A6;
+}
+
+/* HEADING */
+
+.zc-digital-title {
+  color: #173247;
+
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 3.5vw, 55px);
+
+  font-weight: 850;
+  line-height: 1.12;
+  letter-spacing: -1.7px;
+
+  margin-bottom: 21px;
+}
+
+.zc-digital-title span {
+  position: relative;
+  display: inline-block;
+
+  color: #D99A17;
+}
+
+.zc-digital-title span::after {
+  content: "";
+
+  position: absolute;
+
+  left: 3%;
+  bottom: -7px;
+
+  width: 94%;
+  height: 5px;
+
+  border-bottom: 3px solid #F9B632;
+  border-radius: 50%;
+
+  transform: rotate(-2deg);
+}
+
+/* DESCRIPTION */
+
+.zc-digital-description {
+  max-width: 700px;
+
+  color: #536A7B;
+
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.8;
+
+  margin-bottom: 25px;
+}
+
+.zc-digital-description strong {
+  color: #173247;
+  font-weight: 850;
+}
+
+/* =========================================
+   WORKFLOW HEADING
+========================================= */
+
+.zc-digital-workflow-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+
+  margin-bottom: 18px;
+}
+
+.zc-digital-workflow-heading > span {
+  height: 1px;
+  flex: 1;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #83C8D9
+  );
+}
+
+.zc-digital-workflow-heading > span:last-child {
+  transform: rotate(180deg);
+}
+
+.zc-digital-workflow-heading h3 {
+  flex-shrink: 0;
+
+  padding: 10px 22px;
+
+  color: #173247;
+  background: #E4F4F8;
+
+  border-radius: 50px;
+
+  font-size: 15px;
+  font-weight: 850;
+}
+
+/* =========================================
+   WORKFLOW CARDS
+========================================= */
+
+.zc-digital-workflow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-bottom: 26px;
+}
+
+.zc-digital-step-wrap {
+  position: relative;
+  min-width: 0;
+}
+
+.zc-digital-step {
+  position: relative;
+
+  min-height: 158px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 13px 8px;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  border: 1px solid #CBEAF2;
+  border-radius: 18px;
+
+  box-shadow: 0 7px 20px rgba(67, 166, 200, 0.09);
+
+  text-align: center;
+
+  transition: all 0.35s ease;
+}
+
+.zc-digital-step:hover {
+  transform: translateY(-6px);
+
+  background: #FFFFFF;
+  border-color: #F9B632;
+
+  box-shadow: 0 14px 26px rgba(67, 166, 200, 0.15);
+}
+
+.zc-digital-step-icon {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  color: #FFFFFF;
+  background: linear-gradient(
+    135deg,
+    #43A6C8,
+    #087B9B
+  );
+
+  border-radius: 14px;
+
+  margin-bottom: 12px;
+
+  transition: all 0.3s ease;
+}
+
+.zc-digital-step:hover .zc-digital-step-icon {
+  color: #173247;
+  background: #F9B632;
+
+  transform: rotate(-6deg);
+}
+
+.zc-digital-step-number {
+  position: absolute;
+
+  top: 8px;
+  right: 10px;
+
+  color: #A6C8D3;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.zc-digital-step h4 {
+  color: #173247;
+
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.5;
+
+  margin-bottom: 5px;
+}
+
+.zc-digital-step p {
+  color: #8295A3;
+
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 1.4;
+}
+
+/* CONNECTOR ARROW */
+
+.zc-digital-step-arrow {
+  position: absolute;
+  z-index: 3;
+
+  top: 50%;
+  right: -17px;
+
+  width: 24px;
+  height: 24px;
+
+  display: grid;
+  place-items: center;
+
+  color: #1685A6;
+  background: #EAF7FA;
+
+  border: 1px solid #BDE6F0;
+  border-radius: 50%;
+
+  transform: translateY(-50%);
+}
+
+/* =========================================
+   CTA
+========================================= */
+
+.zc-digital-cta {
+  width: fit-content;
+  min-height: 58px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  padding: 8px 10px 8px 25px;
+
+  color: #173247;
+  background: linear-gradient(
+    110deg,
+    #FFD76A,
+    #F9B632,
+    #EBA51E
+  );
+
+  border: 1px solid #F9B632;
+  border-radius: 50px;
+
+  box-shadow: 0 9px 23px rgba(249, 182, 50, 0.23);
+
+  font-size: 14px;
+  font-weight: 850;
+
+  transition: all 0.3s ease;
+}
+
+.zc-digital-cta:hover {
+  color: #173247;
+  transform: translateY(-4px);
+
+  box-shadow: 0 14px 28px rgba(249, 182, 50, 0.32);
+}
+
+.zc-digital-cta-icon {
+  width: 41px;
+  height: 41px;
+
+  display: grid;
+  place-items: center;
+
+  color: #FFFFFF;
+  background: #A96B0B;
+
+  border-radius: 50%;
+
+  transition: transform 0.3s ease;
+}
+
+.zc-digital-cta:hover .zc-digital-cta-icon {
+  transform: rotate(45deg);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .zc-digital-container {
+    width: calc(100% - 50px);
+
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 32px;
+  }
+
+  .zc-digital-image-frame {
+    height: 420px;
+  }
+
+  .zc-digital-title {
+    font-size: clamp(32px, 3.6vw, 43px);
+  }
+
+  .zc-digital-description {
+    font-size: 14px;
+  }
+
+  .zc-digital-workflow {
+    gap: 8px;
+  }
+
+  .zc-digital-step {
+    min-height: 145px;
+    padding: 10px 5px;
+  }
+
+  .zc-digital-step h4,
+  .zc-digital-step p {
+    font-size: 12px;
+  }
+
+  .zc-digital-floating-card {
+    right: -10px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 760px) {
+  .zc-digital-container {
+    width: calc(100% - 32px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 28px;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .zc-digital-visual {
+    width: 100%;
+  }
+
+  .zc-digital-image-frame {
+    height: 340px;
+
+    border-radius: 22px 70px 22px 22px;
+
+    box-shadow:
+      7px 7px 0 #F9B632,
+      0 15px 30px rgba(23, 50, 71, 0.12);
+  }
+
+  .zc-digital-floating-card {
+    top: 15px;
+    right: 10px;
+
+    padding: 9px 12px;
+  }
+
+  .zc-digital-floating-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .zc-digital-image-caption {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+
+    padding: 10px 12px;
+  }
+
+  .zc-digital-content {
+    width: 100%;
+  }
+
+  .zc-digital-eyebrow {
+    min-height: 38px;
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+
+  .zc-digital-title {
+    font-size: clamp(31px, 7vw, 43px);
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+
+    margin-bottom: 18px;
+  }
+
+  .zc-digital-description {
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .zc-digital-workflow-heading {
+    gap: 8px;
+  }
+
+  .zc-digital-workflow-heading h3 {
+    font-size: 13px;
+    padding: 9px 13px;
+  }
+
+  .zc-digital-workflow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+
+    margin-bottom: 20px;
+  }
+
+  .zc-digital-step {
+    min-height: 145px;
+  }
+
+  .zc-digital-step-arrow {
+    display: none;
+  }
+
+  .zc-digital-cta {
+    width: 100%;
+    justify-content: space-between;
+
+    min-height: 54px;
+    font-size: 13px;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+  .zc-digital-image-frame {
+    height: 285px;
+  }
+
+  .zc-digital-title {
+    font-size: 29px;
+  }
+
+  .zc-digital-step {
+    min-height: 135px;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .zc-digital-section *,
+  .zc-digital-section *::before,
+  .zc-digital-section *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

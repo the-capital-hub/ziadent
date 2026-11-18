@@ -1,143 +1,211 @@
 
 import { useState } from "react";
+
 import {
+  Sparkles,
   X,
   Send,
-  Sparkles,
   Bot,
-  Minimize2,
+  User,
+  CalendarDays,
+  Package,
+  MessageCircle,
 } from "lucide-react";
 
 import "./AIButton.css";
 
-function AIButton() {
+function AIFloatingButton() {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState([]);
 
-  const suggestions = [
-    "Explore your dental products",
-    "Tell me about digital dentistry",
-    "How can I work with ZiaDent?",
+  const quickPrompts = [
+    "Explore your dental services",
+    "Tell me about zirconia crowns",
+    "How can I schedule a call?",
   ];
 
-  const handleSend = () => {
-    if (!message.trim()) return;
+  const handleSend = (text = message) => {
+    const trimmedMessage = text.trim();
 
-    // AI API will be connected in the backend phase
-    console.log("User message:", message);
+    if (!trimmedMessage) return;
+
+    setMessages((previous) => [
+      ...previous,
+      {
+        id: Date.now(),
+        text: trimmedMessage,
+        sender: "user",
+      },
+      {
+        id: Date.now() + 1,
+        text: "Thank you for contacting Ziadent Care. Our AI assistant will be connected soon. You can schedule a call with our team for assistance.",
+        sender: "bot",
+      },
+    ]);
 
     setMessage("");
   };
 
   return (
-    <div className="zd-ai-wrapper">
+    <div className="zc-ai-widget">
 
-      {/* CHAT PANEL */}
+      {/* CHAT WINDOW */}
 
-      {isOpen && (
-        <div className="zd-ai-panel">
+      <div className={`zc-ai-panel ${isOpen ? "open" : ""}`}>
 
-          <div className="zd-ai-header">
+        {/* HEADER */}
 
-            <div className="zd-ai-header-info">
-              <div className="zd-ai-avatar">
-                <Bot size={23} />
-                <span />
-              </div>
+        <div className="zc-ai-header">
 
-              <div>
-                <h3>ZiaDent Assistant</h3>
-                <p>Here to help you</p>
-              </div>
+          <div className="zc-ai-header-info">
+
+            <div className="zc-ai-avatar">
+              <Sparkles size={23} />
             </div>
 
-            <button
-              className="zd-ai-close"
-              onClick={() => setIsOpen(false)}
-              aria-label="Close assistant"
-            >
-              <X size={20} />
-            </button>
+            <div>
+              <h3>Ziadent AI Assistant</h3>
 
-          </div>
-
-          <div className="zd-ai-chat-body">
-
-            <div className="zd-ai-welcome">
-              <div className="zd-ai-welcome-icon">
-                <Sparkles size={22} />
-              </div>
-
-              <h3>Hello! Welcome to ZiaDent</h3>
-
-              <p>
-                I can help you explore our dental products,
-                services and digital dentistry solutions.
-              </p>
-            </div>
-
-            <div className="zd-ai-suggestions">
-              <span>How can I help you?</span>
-
-              {suggestions.map((item) => (
-                <button
-                  key={item}
-                  onClick={() => setMessage(item)}
-                >
-                  {item}
-                  <span>↗</span>
-                </button>
-              ))}
+              <span>
+                <span className="zc-ai-online-dot" />
+                Here to help you
+              </span>
             </div>
 
           </div>
 
-          <div className="zd-ai-input-area">
-
-            <input
-              type="text"
-              placeholder="Ask something..."
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") handleSend();
-              }}
-            />
-
-            <button
-              onClick={handleSend}
-              aria-label="Send message"
-            >
-              <Send size={18} />
-            </button>
-
-          </div>
-
-          <div className="zd-ai-footer-note">
-            Powered by ZiaDent
-          </div>
+          <button
+            className="zc-ai-close"
+            type="button"
+            onClick={() => setIsOpen(false)}
+            aria-label="Close AI assistant"
+          >
+            <X size={21} />
+          </button>
 
         </div>
-      )}
+
+        {/* CHAT BODY */}
+
+        <div className="zc-ai-body">
+
+          <div className="zc-ai-welcome">
+
+            <div className="zc-ai-welcome-icon">
+              <Bot size={28} />
+            </div>
+
+            <h4>Hello! Welcome to Ziadent Care</h4>
+
+            <p>
+              I can help you explore our dental laboratory
+              services and guide you towards the right information.
+            </p>
+
+          </div>
+
+          {/* QUICK PROMPTS */}
+
+          {messages.length === 0 && (
+            <div className="zc-ai-quick-prompts">
+
+              <span className="zc-ai-suggestion-label">
+                QUICK QUESTIONS
+              </span>
+
+              {quickPrompts.map((prompt) => (
+                <button
+                  key={prompt}
+                  type="button"
+                  onClick={() => handleSend(prompt)}
+                >
+                  {prompt}
+                  <Sparkles size={15} />
+                </button>
+              ))}
+
+            </div>
+          )}
+
+          {/* MESSAGES */}
+
+          {messages.map((item) => (
+            <div
+              key={item.id}
+              className={`zc-ai-message ${item.sender}`}
+            >
+              <span className="zc-ai-message-icon">
+                {item.sender === "bot" ? (
+                  <Bot size={16} />
+                ) : (
+                  <User size={16} />
+                )}
+              </span>
+
+              <p>{item.text}</p>
+            </div>
+          ))}
+
+        </div>
+
+        {/* CHAT INPUT */}
+
+        <form
+          className="zc-ai-input-area"
+          onSubmit={(event) => {
+            event.preventDefault();
+            handleSend();
+          }}
+        >
+
+          <input
+            type="text"
+            value={message}
+            onChange={(event) => setMessage(event.target.value)}
+            placeholder="Ask us anything..."
+            aria-label="Write your message"
+          />
+
+          <button
+            type="submit"
+            disabled={!message.trim()}
+            aria-label="Send message"
+          >
+            <Send size={19} />
+          </button>
+
+        </form>
+
+        <div className="zc-ai-footer-note">
+          Powered by Ziadent Care
+        </div>
+
+      </div>
 
       {/* FLOATING BUTTON */}
 
       <button
-        className={`zd-ai-floating ${isOpen ? "active" : ""}`}
+        type="button"
+        className={`zc-ai-float-btn ${isOpen ? "active" : ""}`}
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Open AI assistant"
+        aria-label={isOpen ? "Close AI assistant" : "Open AI assistant"}
+        aria-expanded={isOpen}
       >
 
-        <span className="zd-ai-pulse" />
-
-        <span className="zd-ai-floating-icon">
-          {isOpen ? <X size={26} /> : <Sparkles size={26} />}
-        </span>
+        {isOpen ? (
+          <X size={27} />
+        ) : (
+          <Sparkles size={27} />
+        )}
 
         {!isOpen && (
-          <span className="zd-ai-floating-label">
-            Ask AI
-          </span>
+          <>
+            <span className="zc-ai-pulse" />
+            <span className="zc-ai-tooltip">
+              Ask Ziadent AI
+            </span>
+          </>
         )}
 
       </button>
@@ -146,4 +214,4 @@ function AIButton() {
   );
 }
 
-export default AIButton;
+export default AIFloatingButton;

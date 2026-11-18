@@ -2,243 +2,284 @@
 import { Link } from "react-router-dom";
 
 import {
-  FaInstagram,
-  FaFacebookF,
   FaLinkedinIn,
+  FaInstagram,
+  FaYoutube,
+  FaWhatsapp,
 } from "react-icons/fa";
-
+import logo from '../../assets/logo.png'
 import {
-  FaLocationDot,
-  FaArrowRight,
-  FaArrowUpRightFromSquare,
-} from "react-icons/fa6";
-
-import { MdOutlineCalendarMonth } from "react-icons/md";
+  MapPin,
+  Mail,
+  Phone,
+  CalendarDays,
+  ArrowUpRight,
+  ChevronRight,
+  ShieldCheck,
+  UsersRound,
+  Smile,
+} from "lucide-react";
 
 import "./Footer.css";
 
+// Add only verified business contact details.
+const contact = {
+  phone: "",
+  email: "",
+  whatsapp: "",
+};
+
+// Add verified social profile URLs here.
+const socialLinks = {
+  linkedin: "",
+  instagram: "",
+  youtube: "",
+  whatsapp: "",
+};
+
 const quickLinks = [
-  { title: "Home", path: "/" },
-  { title: "About Us", path: "/about" },
-  { title: "Products & Services", path: "/products" },
-  { title: "Digital Dentistry", path: "/digital-dentistry" },
-  { title: "Why ZiaDent", path: "/why-ziadent" },
-  { title: "Contact Us", path: "/contact" },
+  { label: "Home", path: "/" },
+  { label: "About Us", path: "/about" },
+  { label: "Products & Services", path: "/products" },
+  { label: "Digital Dentistry", path: "/digital-dentistry" },
+  { label: "Why ZiaDent", path: "/why-ziadent" },
+  { label: "Contact Us", path: "/contact" },
 ];
 
-const products = [
-  { title: "Zirconia Crowns & Bridges", path: "/products/zirconia" },
-  { title: "PFM Crowns & Bridges", path: "/products/pfm" },
-  { title: "Metal Crowns", path: "/products/metal-crowns" },
-  { title: "Temporary PMMA Crowns", path: "/products/pmma" },
-  { title: "Implant Crowns", path: "/products/implant-crowns" },
-  { title: "Complete Dentures", path: "/products/complete-dentures" },
-  { title: "Removable Partial Dentures (RPD)", path: "/products/partial-dentures" },
-  { title: "Flexible Dentures", path: "/products/flexible-dentures" },
-  { title: "Digital Zirconia Milling", path: "/products/digital-milling" },
-];
-
-const socialLinks = [
-  { name: "Instagram", icon: FaInstagram },
-  { name: "Facebook", icon: FaFacebookF },
-  { name: "LinkedIn", icon: FaLinkedinIn },
+const services = [
+  { label: "Zirconia Crowns & Bridges", path: "/products/zirconia" },
+  { label: "PFM Crowns & Bridges", path: "/products/pfm" },
+  { label: "Metal Crowns", path: "/products/metal-crowns" },
+  { label: "Temporary PMMA Crowns", path: "/products/pmma" },
+  { label: "Implant Crowns", path: "/products/implant-crowns" },
+  { label: "Complete Dentures", path: "/products/complete-dentures" },
+  { label: "Removable Partial Dentures (RPD)", path: "/products/partial-dentures" },
+  { label: "Flexible Dentures", path: "/products/flexible-dentures" },
+  { label: "Digital Zirconia Milling", path: "/products/digital-milling" },
 ];
 
 function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const socials = [
+    {
+      name: "LinkedIn",
+      url: socialLinks.linkedin,
+      icon: FaLinkedinIn,
+    },
+    {
+      name: "Instagram",
+      url: socialLinks.instagram,
+      icon: FaInstagram,
+    },
+    {
+      name: "YouTube",
+      url: socialLinks.youtube,
+      icon: FaYoutube,
+    },
+    {
+      name: "WhatsApp",
+      url: socialLinks.whatsapp,
+      icon: FaWhatsapp,
+    },
+  ].filter((item) => item.url);
+
   return (
-    <footer className="zd-footer">
+    <footer className="zc-footer">
 
-      <div className="zd-footer-orb zd-orb-one" />
-      <div className="zd-footer-orb zd-orb-two" />
+      {/* DECORATIVE BACKGROUND */}
 
-      <div className="zd-footer-container">
+      <div className="zc-footer-glow" />
+      <div className="zc-footer-wave zc-footer-wave-top" />
+      <div className="zc-footer-wave zc-footer-wave-bottom" />
 
-        {/* MAIN FOOTER */}
+      <div className="zc-footer-container">
 
-        <div className="zd-footer-main">
+        {/* BRAND COLUMN */}
 
-          {/* BRAND COLUMN */}
+        <div className="zc-footer-brand">
 
-          <div className="zd-footer-brand">
+          <Link to="/" className="zc-footer-logo">
+            <img
+              src={logo}
+              alt="Ziadent Care"
+            />
+          </Link>
 
-            <Link to="/" className="zd-footer-logo">
+          <p className="zc-footer-description">
+            Your dental laboratory partner for fixed restorations,
+            implant prosthetics, removable dentures and digital
+            zirconia milling.
+          </p>
 
-              <div className="zd-footer-logo-mark">
-                <svg
-                  viewBox="0 0 64 64"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M32 6C25 6 20 12 14 10C7 8 4 15 7 25L14 50C16 58 22 59 26 50L32 36L38 50C42 59 48 58 50 50L57 25C60 15 56 8 50 10C44 12 39 6 32 6Z"
-                    stroke="white"
-                    strokeWidth="3.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M15 28C25 19 37 15 49 12"
-                    stroke="#F47721"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div>
+          <div className="zc-footer-highlights">
 
-              <div className="zd-footer-logo-copy">
-                <span>ZIADENT</span>
-                <small>DENTAL LAB</small>
-              </div>
-
-            </Link>
-
-            <p className="zd-footer-description">
-              Crafting Precision. Creating Confident Smiles.
-              Your professional dental laboratory partner for
-              fixed restorations, removable prosthetics and
-              digital zirconia milling.
-            </p>
-
-            <div className="zd-footer-social-area">
-              <h4>Connect With Us</h4>
-
-              <div className="zd-footer-socials">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-
-                  return (
-                    <span
-                      className="zd-social-icon"
-                      key={social.name}
-                      role="img"
-                      aria-label={social.name}
-                      title={social.name}
-                    >
-                      <Icon />
-                    </span>
-                  );
-                })}
-              </div>
+            <div className="zc-footer-highlight">
+              <span className="zc-footer-highlight-icon">
+                <Smile size={27} />
+              </span>
+              <p>Precision<br />Craftsmanship</p>
             </div>
 
-          </div>
-
-          {/* QUICK LINKS */}
-
-          <div className="zd-footer-column">
-
-            <div className="zd-footer-title">
-              <h3>Quick Links</h3>
-              <span />
+            <div className="zc-footer-highlight">
+              <span className="zc-footer-highlight-icon">
+                <ShieldCheck size={27} />
+              </span>
+              <p>Consistent<br />Quality</p>
             </div>
 
-            <ul className="zd-footer-list">
-              {quickLinks.map((item) => (
-                <li key={item.path}>
-                  <Link to={item.path}>
-                    <FaArrowRight />
-                    <span>{item.title}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-          </div>
-
-          {/* PRODUCTS */}
-
-          <div className="zd-footer-column zd-footer-product-column">
-
-            <div className="zd-footer-title">
-              <h3>Products & Services</h3>
-              <span />
-            </div>
-
-            <ul className="zd-footer-list">
-              {products.map((item) => (
-                <li key={item.path}>
-                  <Link to={item.path}>
-                    <FaArrowRight />
-                    <span>{item.title}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-          </div>
-
-          {/* CONTACT */}
-
-          <div className="zd-footer-column zd-footer-contact">
-
-            <div className="zd-footer-title">
-              <h3>Get in Touch</h3>
-              <span />
-            </div>
-
-            <div className="zd-footer-location">
-
-              <div className="zd-footer-location-icon">
-                <FaLocationDot />
-              </div>
-
-              <div className="zd-footer-location-content">
-                <small>Our Location</small>
-                <p>Hoskote, Karnataka, India</p>
-              </div>
-
-            </div>
-
-            <div className="zd-footer-contact-copy">
-              Have a case to discuss? Our team is ready to
-              connect with your dental practice.
-            </div>
-
-            <Link
-              to="/schedule-call"
-              className="zd-footer-booking"
-            >
-              <MdOutlineCalendarMonth />
-              <span>Schedule a Call with Our Team</span>
-              <FaArrowUpRightFromSquare />
-            </Link>
-
-            <div className="zd-footer-trust-note">
-              <span />
-              Professional Dental Laboratory Support
+            <div className="zc-footer-highlight">
+              <span className="zc-footer-highlight-icon">
+                <UsersRound size={27} />
+              </span>
+              <p>Dedicated<br />Clinic Support</p>
             </div>
 
           </div>
 
         </div>
 
-        {/* BOTTOM BAR */}
+        {/* QUICK LINKS */}
 
-        <div className="zd-footer-bottom">
+        <div className="zc-footer-column">
 
-          <p>
-            © {currentYear} ZiaDent Dental Lab. All Rights Reserved.
-          </p>
+          <h3 className="zc-footer-heading">
+            Quick Links
+          </h3>
 
-          <div className="zd-footer-bottom-links">
-            <Link to="/privacy-policy">Privacy Policy</Link>
-            <span className="zd-bottom-separator" />
-            <Link to="/contact">Enquiries</Link>
+          <span className="zc-footer-heading-line" />
+
+          <ul className="zc-footer-links">
+            {quickLinks.map((item) => (
+              <li key={item.path}>
+                <Link to={item.path}>
+                  <ChevronRight size={17} />
+                  <span>{item.label}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+        </div>
+
+        {/* SERVICES */}
+
+        <div className="zc-footer-column zc-footer-services">
+
+          <h3 className="zc-footer-heading">
+            Our Services
+          </h3>
+
+          <span className="zc-footer-heading-line" />
+
+          <ul className="zc-footer-links">
+            {services.map((item) => (
+              <li key={item.path}>
+                <Link to={item.path}>
+                  <ChevronRight size={17} />
+                  <span>{item.label}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+        </div>
+
+        {/* CONTACT */}
+
+        <div className="zc-footer-column zc-footer-contact">
+
+          <h3 className="zc-footer-heading">
+            Get in Touch
+          </h3>
+
+          <span className="zc-footer-heading-line" />
+
+          <div className="zc-footer-contact-list">
+
+            <div className="zc-footer-contact-item">
+              <span className="zc-footer-contact-icon">
+                <MapPin size={21} />
+              </span>
+
+              <p>Hoskote, Karnataka, India</p>
+            </div>
+
+            {contact.email && (
+              <a
+                href={`mailto:${contact.email}`}
+                className="zc-footer-contact-item"
+              >
+                <span className="zc-footer-contact-icon">
+                  <Mail size={21} />
+                </span>
+                <p>{contact.email}</p>
+              </a>
+            )}
+
+            {contact.phone && (
+              <a
+                href={`tel:${contact.phone}`}
+                className="zc-footer-contact-item"
+              >
+                <span className="zc-footer-contact-icon">
+                  <Phone size={21} />
+                </span>
+                <p>Request a Call</p>
+              </a>
+            )}
+
+            <Link
+              to="/schedule-call"
+              className="zc-footer-contact-item"
+            >
+              <span className="zc-footer-contact-icon">
+                <CalendarDays size={21} />
+              </span>
+              <p>Schedule a Call with Our Team</p>
+            </Link>
+
           </div>
 
-          <button
-            type="button"
-            className="zd-back-top"
-            onClick={() => window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            })}
-          >
-            Back to Top
-            <FaArrowUpRightFromSquare />
-          </button>
+          {/* SOCIAL MEDIA */}
+
+          {socials.length > 0 && (
+            <div className="zc-footer-socials">
+              {socials.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <a
+                    key={item.name}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={item.name}
+                  >
+                    <Icon />
+                  </a>
+                );
+              })}
+            </div>
+          )}
+
+        </div>
+
+      </div>
+
+      {/* BOTTOM BAR */}
+
+      <div className="zc-footer-bottom">
+
+        <div className="zc-footer-bottom-container">
+
+          <p className="zc-footer-copyright">
+            © {currentYear} Ziadent Care. All Rights Reserved.
+          </p>
+
+          <div className="zc-footer-bottom-links">
+            <Link to="/privacy-policy">Privacy Policy</Link>
+          </div>
 
         </div>
 
