@@ -13,7 +13,7 @@ export const productsData = {
     overview:
       "At ZiaDent Dental Lab, zirconia restorations are coordinated according to the material, specifications and requirements of each individual case.",
     heroImage: "/images/products/01-zirconia-crowns-bridges.jpg",
-    overviewImage: "/images/why-choose/dental-crowns.jpg",
+    overviewImage: "/images/products/01-zirconia-crowns-bridges.jpg",
     applicationImage: "/images/products/01-zirconia-crowns-bridges.jpg",
     benefits: [
       {
