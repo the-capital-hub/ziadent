@@ -12,9 +12,9 @@ export const productsData = {
     overviewTitle: "About Zirconia Restorations",
     overview:
       "At ZiaDent Dental Lab, zirconia restorations are coordinated according to the material, specifications and requirements of each individual case.",
-    heroImage: "/images/products/01-zirconia-crowns-bridges.jpg",
-    overviewImage: "/images/products/01-zirconia-crowns-bridges.jpg",
-    applicationImage: "/images/products/01-zirconia-crowns-bridges.jpg",
+    heroImage: "/images/products/01-zirconia-crowns-bridges-hero.jpg",
+    overviewImage: "/images/products/01-zirconia-crowns-bridges-overview.jpg",
+    applicationImage: "/images/products/01-zirconia-crowns-bridges-application.jpg",
     benefits: [
       {
         icon: "crown",
@@ -62,9 +62,9 @@ export const productsData = {
     overviewTitle: "About PFM Restorations",
     overview:
       "ZiaDent provides PFM crown and bridge solutions according to the restoration type, material specifications and individual case requirements.",
-    heroImage: "/images/products/02-pfm-crowns-bridges.jpg",
-    overviewImage: "/images/products/02-pfm-crowns-bridges.jpg",
-    applicationImage: "/images/products/02-pfm-crowns-bridges.jpg",
+    heroImage: "/images/products/02-pfm-crowns-bridges-hero.jpg",
+    overviewImage: "/images/products/02-pfm-crowns-bridges-overview.jpg",
+    applicationImage: "/images/products/02-pfm-crowns-bridges-application.jpg",
     benefits: [
       {
         icon: "layers",
@@ -112,8 +112,8 @@ export const productsData = {
     overview:
       "ZiaDent coordinates metal crown requirements according to the restoration specifications and details shared by dental professionals.",
     heroImage: "/images/products/03-metal-crowns.jpg",
-    overviewImage: "/images/products/03-metal-crowns.jpg",
-    applicationImage: "/images/products/03-metal-crowns.jpg",
+    overviewImage: "/images/products/10-metal-crown-studio-angle.jpg",
+    applicationImage: "/images/products/11-metal-crown-closeup.jpg",
     benefits: [
       {
         icon: "layers",
@@ -210,8 +210,8 @@ export const productsData = {
     overview:
       "ZiaDent works with dental professionals to coordinate implant restoration requirements, specifications and case information.",
     heroImage: "/images/products/05-implant-crowns.jpg",
-    overviewImage: "/images/products/05-implant-crowns.jpg",
-    applicationImage: "/images/products/05-implant-crowns.jpg",
+    overviewImage: "/images/products/14-implant-crown-single.jpg",
+    applicationImage: "/images/products/15-implant-restorations-model.jpg",
     benefits: [
       {
         icon: "target",
@@ -259,8 +259,8 @@ export const productsData = {
     overview:
       "ZiaDent coordinates complete denture requirements with dental professionals according to the details shared for each case.",
     heroImage: "/images/products/06-complete-dentures.jpg",
-    overviewImage: "/images/products/06-complete-dentures.jpg",
-    applicationImage: "/images/products/06-complete-dentures.jpg",
+    overviewImage: "/images/products/16-complete-dentures-front-view.jpg",
+    applicationImage: "/images/products/17-upper-denture-occlusal-view.jpg",
     benefits: [
       {
         icon: "smile",
@@ -308,7 +308,7 @@ export const productsData = {
     overview:
       "ZiaDent coordinates removable partial denture requirements according to the information and specifications shared by dental professionals.",
     heroImage: "/images/products/07-removable-partial-dentures-rpd.jpg",
-    overviewImage: "/images/products/07-removable-partial-dentures-rpd.jpg",
+    overviewImage: "/images/products/18-removable-partial-denture-framework.jpg",
     applicationImage: "/images/products/07-removable-partial-dentures-rpd.jpg",
     benefits: [
       {
@@ -357,7 +357,7 @@ export const productsData = {
     overview:
       "ZiaDent coordinates flexible denture requirements with dental professionals according to the information provided for each case.",
     heroImage: "/images/products/08-flexible-dentures.jpg",
-    overviewImage: "/images/products/08-flexible-dentures.jpg",
+    overviewImage: "/images/products/19-flexible-partial-denture.jpg",
     applicationImage: "/images/products/08-flexible-dentures.jpg",
     benefits: [
       {
@@ -406,7 +406,7 @@ export const productsData = {
     overview:
       "ZiaDent offers digital zirconia milling as part of its dental laboratory services for dental professionals.",
     heroImage: "/images/products/09-digital-zirconia-milling.jpg",
-    overviewImage: "/images/products/09-digital-zirconia-milling.jpg",
+    overviewImage: "/images/products/20-digital-zirconia-milling-process.jpg",
     applicationImage: "/images/products/09-digital-zirconia-milling.jpg",
     benefits: [
       {
