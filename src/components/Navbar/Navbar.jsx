@@ -1,7 +1,10 @@
 
 import { useState, useEffect, useRef } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import {
+  Link,
+  NavLink,
+  useLocation,
+} from "react-router-dom";
 
 import {
   ChevronDown,
@@ -12,6 +15,7 @@ import {
   Phone,
 } from "lucide-react";
 
+import logo from "../../assets/logo.png";
 import "./Navbar.css";
 
 const navLinks = [
@@ -62,27 +66,39 @@ const products = [
 ];
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
-
-  const dropdownRef = useRef(null);
   const location = useLocation();
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [desktopProductsOpen, setDesktopProductsOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+
+  const desktopDropdownRef = useRef(null);
 
   const isProductPage = location.pathname.startsWith("/products");
 
-  const closeMenu = () => {
+  const closeAllMenus = () => {
     setMenuOpen(false);
-    setProductsOpen(false);
+    setDesktopProductsOpen(false);
+    setMobileProductsOpen(false);
   };
 
-  // Close dropdown when clicking outside
+  const toggleMobileMenu = () => {
+    setMenuOpen((previous) => !previous);
+    setMobileProductsOpen(false);
+  };
+
+  const toggleMobileProducts = () => {
+    setMobileProductsOpen((previous) => !previous);
+  };
+
+  // Close desktop dropdown when clicking outside
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target)
+        desktopDropdownRef.current &&
+        !desktopDropdownRef.current.contains(event.target)
       ) {
-        setProductsOpen(false);
+        setDesktopProductsOpen(false);
       }
     };
 
@@ -93,11 +109,25 @@ function Navbar() {
     };
   }, []);
 
-  // Close menus whenever route changes
+  // Close menus after route navigation
   useEffect(() => {
-    setMenuOpen(false);
-    setProductsOpen(false);
+    closeAllMenus();
   }, [location.pathname]);
+
+  // Close menus using Escape key
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        closeAllMenus();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
 
   return (
     <header className="zc-header">
@@ -106,17 +136,25 @@ function Navbar() {
 
         {/* LOGO */}
 
-        <Link to="/" className="zc-brand" onClick={closeMenu}>
+        <Link
+          to="/"
+          className="zc-brand"
+          onClick={closeAllMenus}
+          aria-label="ZiaDent Home"
+        >
           <img
             src={logo}
-            alt="ZiaDent Care"
+            alt="ZiaDent Dental Lab"
             className="zc-brand-logo"
           />
         </Link>
 
         {/* DESKTOP NAVIGATION */}
 
-        <nav className="zc-desktop-nav">
+        <nav
+          className="zc-desktop-nav"
+          aria-label="Main navigation"
+        >
 
           {navLinks.slice(0, 2).map((item) => (
             <NavLink
@@ -131,32 +169,40 @@ function Navbar() {
             </NavLink>
           ))}
 
-          {/* PRODUCTS & SERVICES */}
+          {/* DESKTOP PRODUCTS DROPDOWN */}
 
-          <div className="zc-nav-dropdown" ref={dropdownRef}>
+          <div
+            className="zc-nav-dropdown"
+            ref={desktopDropdownRef}
+          >
 
             <div className="zc-dropdown-trigger">
 
-              <Link
+              <NavLink
                 to="/products"
-                className={`zc-nav-link ${
-                  isProductPage ? "active" : ""
-                }`}
-                onClick={closeMenu}
+                className={() =>
+                  `zc-nav-link ${
+                    isProductPage ? "active" : ""
+                  }`
+                }
               >
                 Products & Services
-              </Link>
+              </NavLink>
 
               <button
                 type="button"
                 className="zc-dropdown-arrow"
-                aria-label="Open products dropdown"
-                aria-expanded={productsOpen}
-                onClick={() => setProductsOpen((prev) => !prev)}
+                aria-label="Toggle products menu"
+                aria-expanded={desktopProductsOpen}
+                onClick={() =>
+                  setDesktopProductsOpen((previous) => !previous)
+                }
               >
                 <ChevronDown
-                  size={16}
-                  className={productsOpen ? "zc-chevron-open" : ""}
+                  size={17}
+                  className={
+                    desktopProductsOpen ? "zc-chevron-open" : ""
+                  }
                 />
               </button>
 
@@ -164,7 +210,7 @@ function Navbar() {
 
             <div
               className={`zc-dropdown-menu ${
-                productsOpen ? "zc-dropdown-visible" : ""
+                desktopProductsOpen ? "zc-dropdown-visible" : ""
               }`}
             >
 
@@ -176,9 +222,9 @@ function Navbar() {
               <Link
                 to="/products"
                 className="zc-dropdown-all"
-                onClick={closeMenu}
+                onClick={closeAllMenus}
               >
-                Explore All Products & Services
+                <span>Explore All Products & Services</span>
                 <ArrowUpRight size={16} />
               </Link>
 
@@ -186,9 +232,11 @@ function Navbar() {
                 <NavLink
                   key={item.path}
                   to={item.path}
-                  onClick={closeMenu}
+                  onClick={closeAllMenus}
                   className={({ isActive }) =>
-                    `zc-dropdown-item ${isActive ? "active" : ""}`
+                    `zc-dropdown-item ${
+                      isActive ? "active" : ""
+                    }`
                   }
                 >
                   <span>{item.label}</span>
@@ -197,7 +245,6 @@ function Navbar() {
               ))}
 
             </div>
-
           </div>
 
           {navLinks.slice(2).map((item) => (
@@ -214,7 +261,7 @@ function Navbar() {
 
         </nav>
 
-        {/* RIGHT ACTIONS */}
+        {/* DESKTOP ACTIONS */}
 
         <div className="zc-navbar-actions">
 
@@ -223,7 +270,7 @@ function Navbar() {
             className="zc-call-info"
           >
             <span className="zc-call-icon">
-              <Phone size={20} />
+              <Phone size={19} />
             </span>
 
             <span>Request a Call</span>
@@ -234,9 +281,7 @@ function Navbar() {
             className="zc-navbar-cta"
           >
             <CalendarDays size={18} />
-
-            <span>Schedule a Call with Our Team</span>
-
+            <span>Schedule a Call</span>
             <ArrowUpRight size={17} />
           </Link>
 
@@ -247,28 +292,36 @@ function Navbar() {
         <button
           type="button"
           className="zc-mobile-toggle"
-          onClick={() => {
-            setMenuOpen((prev) => !prev);
-            setProductsOpen(false);
-          }}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          onClick={toggleMobileMenu}
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
           aria-expanded={menuOpen}
+          aria-controls="zc-mobile-navigation"
         >
-          {menuOpen ? <X size={25} /> : <Menu size={25} />}
+          {menuOpen ? (
+            <X size={25} />
+          ) : (
+            <Menu size={25} />
+          )}
         </button>
 
       </div>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE NAVIGATION */}
 
-      <div className={`zc-mobile-menu ${menuOpen ? "show" : ""}`}>
+      <nav
+        id="zc-mobile-navigation"
+        className={`zc-mobile-menu ${menuOpen ? "show" : ""}`}
+        aria-label="Mobile navigation"
+        aria-hidden={!menuOpen}
+      >
 
         {navLinks.slice(0, 2).map((item) => (
           <NavLink
             key={item.path}
             to={item.path}
             end={item.path === "/"}
-            onClick={closeMenu}
+            onClick={closeAllMenus}
+            tabIndex={menuOpen ? 0 : -1}
             className={({ isActive }) =>
               `zc-mobile-link ${isActive ? "active" : ""}`
             }
@@ -277,53 +330,70 @@ function Navbar() {
           </NavLink>
         ))}
 
-        {/* MOBILE PRODUCTS */}
+        {/* MOBILE PRODUCTS ACCORDION */}
 
         <div className="zc-mobile-products">
 
-          <Link
-            to="/products"
-            className={`zc-mobile-link zc-mobile-products-main ${
-              isProductPage ? "active" : ""
-            }`}
-            onClick={closeMenu}
-          >
-            <span>Products & Services</span>
-            <ArrowUpRight size={17} />
-          </Link>
-
           <button
             type="button"
-            className="zc-mobile-link zc-mobile-product-toggle"
-            onClick={() => setProductsOpen((prev) => !prev)}
-            aria-expanded={productsOpen}
+            className={`zc-mobile-link zc-mobile-product-toggle ${
+              isProductPage ? "active" : ""
+            }`}
+            onClick={toggleMobileProducts}
+            aria-expanded={mobileProductsOpen}
+            aria-controls="zc-mobile-product-submenu"
+            tabIndex={menuOpen ? 0 : -1}
           >
-            <span>Browse Products</span>
+            <span>Products & Services</span>
 
             <ChevronDown
-              size={18}
-              className={productsOpen ? "zc-chevron-open" : ""}
+              size={19}
+              className={
+                mobileProductsOpen ? "zc-chevron-open" : ""
+              }
             />
           </button>
 
-          {productsOpen && (
-            <div className="zc-mobile-product-list">
+          <div
+            id="zc-mobile-product-submenu"
+            className={`zc-mobile-product-list ${
+              mobileProductsOpen ? "open" : ""
+            }`}
+            aria-hidden={!mobileProductsOpen}
+          >
 
-              {products.map((item) => (
-                <NavLink
-                  key={item.path}
-                  to={item.path}
-                  onClick={closeMenu}
-                  className={({ isActive }) =>
+            <NavLink
+              to="/products"
+              onClick={closeAllMenus}
+              tabIndex={menuOpen && mobileProductsOpen ? 0 : -1}
+              className={({ isActive }) =>
+                `zc-mobile-product-all ${
+                  isActive ? "active" : ""
+                }`
+              }
+            >
+              <span>Explore All Products & Services</span>
+              <ArrowUpRight size={15} />
+            </NavLink>
+
+            {products.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                onClick={closeAllMenus}
+                tabIndex={menuOpen && mobileProductsOpen ? 0 : -1}
+                className={({ isActive }) =>
+                  `zc-mobile-product-item ${
                     isActive ? "active" : ""
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              ))}
+                  }`
+                }
+              >
+                <span>{item.label}</span>
+                <ArrowUpRight size={14} />
+              </NavLink>
+            ))}
 
-            </div>
-          )}
+          </div>
 
         </div>
 
@@ -331,7 +401,8 @@ function Navbar() {
           <NavLink
             key={item.path}
             to={item.path}
-            onClick={closeMenu}
+            onClick={closeAllMenus}
+            tabIndex={menuOpen ? 0 : -1}
             className={({ isActive }) =>
               `zc-mobile-link ${isActive ? "active" : ""}`
             }
@@ -340,17 +411,20 @@ function Navbar() {
           </NavLink>
         ))}
 
+        {/* MOBILE CTA */}
+
         <Link
           to="/schedule-call"
           className="zc-mobile-cta"
-          onClick={closeMenu}
+          onClick={closeAllMenus}
+          tabIndex={menuOpen ? 0 : -1}
         >
           <CalendarDays size={19} />
           <span>Schedule a Call with Our Team</span>
           <ArrowUpRight size={18} />
         </Link>
 
-      </div>
+      </nav>
 
       {/* MOBILE BACKDROP */}
 
@@ -359,7 +433,7 @@ function Navbar() {
           type="button"
           className="zc-mobile-backdrop"
           aria-label="Close navigation menu"
-          onClick={closeMenu}
+          onClick={closeAllMenus}
         />
       )}
 
