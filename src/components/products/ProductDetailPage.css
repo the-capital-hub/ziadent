@@ -120,10 +120,10 @@
 .pdp-title-line {
   width: 210px;
   height: 4px;
-  margin-top: 7px;
+  /* margin-top: 7px;
   border-radius: 50%;
   background: var(--p-gold);
-  transform: rotate(-2deg);
+  transform: rotate(-2deg); */
 }
 
 .pdp-hero-description {
@@ -965,4 +965,391 @@
     transition: none !important;
     animation: none !important;
   }
+}
+
+/* =========================================
+   ZIADENT PRODUCT IMAGE POLISH
+========================================= */
+
+/* HERO IMAGE */
+
+.pdp-hero-image {
+  width: 49%;
+  height: 100%;
+  background: #e4f2f8;
+  border-left: 5px solid rgba(249, 182, 50, 0.8);
+}
+
+.pdp-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.65s ease;
+}
+
+.pdp-hero-image:hover img {
+  transform: scale(1.035);
+}
+
+/* OVERVIEW IMAGE */
+
+.pdp-overview-image {
+  position: relative;
+  height: 270px;
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  border-radius: 24px;
+  background: #e8f3f8;
+  box-shadow:
+    0 12px 30px rgba(16, 91, 130, 0.10),
+    0 2px 8px rgba(16, 91, 130, 0.05);
+}
+
+.pdp-overview-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s ease;
+}
+
+.pdp-overview-image:hover img {
+  transform: scale(1.04);
+}
+
+/* APPLICATION IMAGE */
+
+.pdp-application-image {
+  position: relative;
+  height: 245px;
+  overflow: hidden;
+  border: 3px solid #ffffff;
+  border-radius: 22px;
+  background: #e8f3f8;
+  box-shadow: 0 10px 25px rgba(16, 91, 130, 0.10);
+}
+
+.pdp-application-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s ease;
+}
+
+.pdp-application-image:hover img {
+  transform: scale(1.04);
+}
+
+/* RELATED PRODUCT IMAGES */
+
+.pdp-related-card {
+  grid-template-columns: 44% 56%;
+  min-height: 115px;
+  overflow: hidden;
+  border-radius: 17px;
+  background: #ffffff;
+}
+
+.pdp-related-image {
+  position: relative;
+  height: 96px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #edf6fa;
+}
+
+.pdp-related-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.pdp-related-card:hover .pdp-related-image img {
+  transform: scale(1.07);
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .pdp-overview-image {
+    height: 245px;
+  }
+
+  .pdp-application-image {
+    height: 225px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+  .pdp-hero-image {
+    width: 100%;
+    height: 280px;
+    border-left: none;
+    border-top: 4px solid #f9b632;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .pdp-overview-image {
+    height: 250px;
+  }
+
+  .pdp-application-image {
+    height: 230px;
+  }
+
+  .pdp-related-image {
+    height: 90px;
+  }
+}
+
+@media (max-width: 520px) {
+  .pdp-hero-image {
+    height: 220px;
+  }
+
+  .pdp-overview-image {
+    height: 205px;
+    border-radius: 18px;
+  }
+
+  .pdp-application-image {
+    height: 185px;
+    border-radius: 18px;
+  }
+
+  .pdp-related-card {
+    grid-template-columns: 105px minmax(0, 1fr);
+    min-height: 105px;
+  }
+
+  .pdp-related-image {
+    height: 85px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .pdp-hero-image img,
+  .pdp-overview-image img,
+  .pdp-application-image img,
+  .pdp-related-image img {
+    transition: none;
+  }
+}
+
+/* =========================================
+   ZIADENT PRODUCT IMAGE NO CROP FIX
+========================================= */
+
+/* HERO IMAGE */
+
+.pdp-hero-image {
+  clip-path: none !important;
+  border-radius: 24px;
+  padding: 15px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.pdp-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* OVERVIEW IMAGE */
+
+.pdp-overview-image {
+  padding: 10px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.pdp-overview-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* APPLICATION IMAGE */
+
+.pdp-application-image {
+  padding: 10px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.pdp-application-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* RELATED PRODUCT IMAGES */
+
+.pdp-related-image {
+  padding: 5px;
+  background: #f3f8fb;
+}
+
+.pdp-related-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+  .pdp-hero-image {
+    clip-path: none !important;
+    border-radius: 20px;
+    padding: 10px;
+  }
+
+  .pdp-overview-image,
+  .pdp-application-image {
+    padding: 8px;
+  }
+}
+
+/* =========================================
+   ZIADENT IMAGE FRAME FINAL FIX
+========================================= */
+
+/* HERO */
+
+.pdp-hero-image {
+  width: 49% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 24px 0 0 24px;
+  overflow: hidden;
+  background: #e9f0f4;
+  clip-path: none !important;
+}
+
+.pdp-hero-image img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* OVERVIEW */
+
+.pdp-overview-image {
+  width: 100%;
+  height: 270px !important;
+  padding: 0 !important;
+  border: 3px solid #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #edf3f6;
+}
+
+.pdp-overview-image img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* APPLICATION */
+
+.pdp-application-image {
+  height: 245px !important;
+  padding: 0 !important;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #edf3f6;
+}
+
+.pdp-application-image img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* RELATED PRODUCTS */
+
+.pdp-related-image {
+  height: 96px !important;
+  padding: 0 !important;
+  overflow: hidden;
+  background: #edf3f6;
+}
+
+.pdp-related-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+  .pdp-hero-image {
+    width: 100% !important;
+    height: 260px !important;
+    border-radius: 20px;
+  }
+
+  .pdp-overview-image {
+    height: 230px !important;
+  }
+
+  .pdp-application-image {
+    height: 210px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .pdp-hero-image {
+    height: 220px !important;
+  }
+
+  .pdp-overview-image {
+    height: 190px !important;
+  }
+
+  .pdp-application-image {
+    height: 180px !important;
+  }
+}
+
+/* Remove Hero Curve Decoration */
+
+.pdp-hero-curve {
+  display: none !important;
+}
+
+.pdp-hero-image {
+  border-left: none !important;
 }
